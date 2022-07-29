@@ -1,0 +1,73 @@
+package com.chris.behrens.track.that.track.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="userRecords")
+public class UserRecord {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="artist")
+	private String artist;
+	
+	@Column(name="album_title")
+	private String album_title;
+	
+	@Column(name="condition")
+	private String condition;
+	
+	@Column(name="url")
+	private String url;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public String getAlbum_title() {
+		return album_title;
+	}
+
+	public void setAlbum_title(String album_title) {
+		this.album_title = album_title;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	
+	
+}
