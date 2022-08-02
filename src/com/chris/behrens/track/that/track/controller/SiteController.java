@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
 import com.chris.behrens.track.that.track.service.UserService;
+
 
 
 
@@ -42,8 +45,19 @@ public class SiteController {
 		}
 		
 		@GetMapping("/signup")
-		public String signup() {
+		public String signup(Model theModel) {
+			
+				User theUser = new User();
+				theModel.addAttribute("user", theUser);
 			return "signup";
+		}
+		
+		@PostMapping("saveUser")
+		public String saveUser(@ModelAttribute("user") User theUser) {
+			//save the user using the service
+			userService.saveUser(theUser);
+			
+			return "redirect:/signin";
 		}
 		
 		@GetMapping("/signin")
@@ -60,8 +74,21 @@ public class SiteController {
 		}
 		
 		@GetMapping("/addCollection")
-		public String addCollection() {
+		public String addCollection(Model theModel) {
+			// create model attribute to bind form data
+			UserRecord theUserRecord = new UserRecord();
+			
+			theModel.addAttribute("userRecord", theUserRecord);
+			
 			return "addCollection";
+		}
+		
+		@PostMapping("/saveUserRecord")
+		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord) {
+			///save the customer using service
+			userService.saveUserRecord(theUserRecord);
+			
+			return "redirect:/mainUser";
 		}
 		
 		@GetMapping("/addWish")

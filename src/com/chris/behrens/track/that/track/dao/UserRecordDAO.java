@@ -8,5 +8,6 @@ public interface UserRecordDAO {
 
 	
 	public List<UserRecord> getUserRecords();
+	public void saveUserRecord(UserRecord theUserRecord);
 	
 }

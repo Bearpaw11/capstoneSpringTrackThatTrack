@@ -38,10 +38,19 @@
 		<h1 class="welcome">Welcome, ILuvRecords!</h1>
 		<h3 class="greeting">What would you like to do today?</h3>
 		<div class="buttonDiv">
-			<a href="${pageContext.request.contextPath}/addCollection"
-				class="btn">Add record to collection</a> <a
-				href="${pageContext.request.contextPath}/addWish" class="btn">Add
-				record to wish list</a>
+			<input type="button" value="Add record to collection"
+				   onclick="window.location.href='addCollection'; return false;"
+				   class="add-button"
+			/>
+			
+			<input type="button" value="Add record to wsh list"
+				   onclick="window.location.href='showFormForAdd'; return false;"
+				   class="add-button"
+			/>
+		<%-- 	<a href="${pageContext.request.contextPath}/addCollection"
+				class="btn">Add record to collection</a>  --%>
+			<%-- <a href="${pageContext.request.contextPath}/addWish" class="btn">Add
+				record to wish list</a> --%>
 		</div>
 		<h1 class="current">Current Collection</h1>
 		<div class="tableDiv">

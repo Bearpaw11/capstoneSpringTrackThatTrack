@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,26 +45,27 @@
   <div class="pageBackground">
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
-      <h1>Signup</h1>
-      <form id="signup">
+      <h1 class="signUpHeader">Signup</h1>
+      <form:form action="saveUser" modelAttribute="user" method="Post" id="signup">
+      <form:hidden path="id"/>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+          <form:input path="email" id="email" type="email" class="form-control"/>
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">User Name</label>
-          <input type="text" class="form-control" id="UserName" aria-describedby="emailHelp">
+          <form:input path="userName"  type="text" class="form-control" id="UserName"/>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="InputPassword1">
+          <label for="exampleInputPassword1" class="form-label" >Password</label>
+          <input type="password" class="form-control" id="password" />
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-          <input type="password" class="form-control" id="InputPassword2">
+          <form:input path="password" type="password" class="form-control" id="confirm" onchange="checkPass()"/>
         </div>
-        <button type="submit" class="btn btn-danger">Signup</button>
-      </form>
+        <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled />
+      </form:form>
     </div>
   </div>
  
@@ -72,7 +73,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
-  <script src="../Scripts/newUser.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/scripts/signup.js"></script>
 </body>
 
 </html>

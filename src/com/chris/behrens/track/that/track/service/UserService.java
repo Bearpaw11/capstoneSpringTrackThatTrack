@@ -10,4 +10,8 @@ public interface UserService {
 	
 	public List<UserRecord> getUserRecords();
 	
+	public void saveUserRecord(UserRecord theUserRecord);
+	
+	public void saveUser(User theUser);
+	
 }

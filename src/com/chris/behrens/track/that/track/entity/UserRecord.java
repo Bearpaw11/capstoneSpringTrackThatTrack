@@ -27,6 +27,8 @@ public class UserRecord {
 	
 	@Column(name="url")
 	private String url;
+	
+	
 
 	public int getId() {
 		return id;

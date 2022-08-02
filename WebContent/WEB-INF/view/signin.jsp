@@ -43,7 +43,7 @@
   <div class="pageBackground">
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
-      <h1>Sign In</h1>
+      <h1 class="signInHeader">Sign In</h1>
       <form id="login">
       
         <div class="mb-3">

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add to collection</title>
-  <link rel="icon" href="../Images/favicon.ico" type="image/x-icon"> 
-  <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
    <link type="text/css"
 		  rel="stylesheet"
@@ -37,35 +36,42 @@
     </div>
   </nav>
   <div class="pageBackground">
-    <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
+    <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logo" width="300" height="300">
     <div class="formCard">
       <h1>Add Record to collection</h1>
-      <form id="addCollection">
+      <form:form action="saveUserRecord" modelAttribute="userRecord" method="POST">
+
+			<!-- need to associate this data with record id -->
+			<form:hidden path="id" />
+					
+			
         <div class="mb-3">
           <label for="artist" class="form-label">Artist</label>
-          <input type="text" class="form-control" id="artist">
+          <form:input path="artist" class="form-control" id="artist"/>
         </div>
         <div class="mb-3">
-          <label for="albumName" class="form-label">Albumn Name</label>
-          <input type="text" class="form-control" id="albumName">
+          <label for="albumName" class="form-label">Album Name</label>
+          <form:input path="album_title" class="form-control" id="albumName"/>
         </div>
         <div class="mb-3">
           <ul class="list">
             <li class="bigfield">
-              <select name ="Condition" id="Condition">
-                 <option value ="No Entry" selected = "selected">Select Condition</option>
+            <label for="condition" class="form-label">Album Condition</label>
+            <br>
+              <form:select path="condition" name ="Condition" id="Condition"> 
+                 <option value ="Used">Used</option>
                  <option value ="Unopened"> Unopened</option>
                  <option value ="New">New</option>
-                 <option value ="Used">Used</option>
-              </select>
+              </form:select>
             </li>
-            </ul>
+           </ul>
+        </div>
         <div class="mb-3">
           <label for="albumUrl" class="form-label">Album cover URL</label>
-          <input type="text" class="form-control" id="albumUrl">
+          <form:input path="url" class="form-control" id="albumUrl"/>
         </div>
-        <button type="submit" class="btn btn-danger">Add to Collection</button>
-      </form>
+        <input type="submit" value="Save" class="save" />
+      </form:form>
     </div>
   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

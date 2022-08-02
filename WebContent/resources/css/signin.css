@@ -26,7 +26,11 @@ li a{
   margin: auto;
   width: 40%;
   color:white;
-  margin-top: -80px;
+  padding-bottom: 20px; 
+  border: 2px solid white;
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 20px; 
 }
 
 h1{
@@ -40,3 +44,8 @@ h1{
   margin-left: auto;
   margin-right: auto;
 }
+
+.signInHeader{
+	margin-top: -40px;
+	margin-bottom: 20px;
+} 
