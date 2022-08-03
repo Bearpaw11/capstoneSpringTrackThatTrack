@@ -78,24 +78,39 @@ public class SiteController {
 			return "mainUser";
 		}
 		
+		
 		@GetMapping("/addCollection")
 		public String addCollection(Model theModel) {
-			// create model attribute to bind form data
 			UserRecord theUserRecord = new UserRecord();
-			
 			theModel.addAttribute("userRecord", theUserRecord);
-			
 			return "addCollection";
 		}
 		
 		@PostMapping("/saveUserRecord")
 		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord) {
-			///save the customer using service
 			userService.saveUserRecord(theUserRecord);
 			
 			return "redirect:/mainUser";
 		}
 		
+//		@GetMapping("/addCollection")
+//		public String addCollection(Model theModel) {
+//			// create model attribute to bind form data
+//			UserRecord theUserRecord = new UserRecord();
+//			
+//			theModel.addAttribute("userRecord", theUserRecord);
+//			
+//			return "addCollection";
+//		}
+//		
+//		@PostMapping("/saveUserRecord")
+//		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord) {
+//			///save the customer using service
+//			userService.saveUserRecord(theUserRecord);
+//			
+//			return "redirect:/mainUser";
+//		}
+//		
 	
 		@GetMapping("/addWish")
 		public String addWish(Model theModel) {

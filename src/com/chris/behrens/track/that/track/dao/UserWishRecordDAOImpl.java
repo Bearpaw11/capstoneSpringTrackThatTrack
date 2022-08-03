@@ -8,11 +8,10 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
 @Repository
-public class UserWishRecordImpl implements UserWishRecordDAO{
+public class UserWishRecordDAOImpl implements UserWishRecordDAO{
 
 	@Autowired
 	private SessionFactory sessionFactory;

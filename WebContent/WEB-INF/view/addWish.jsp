@@ -47,7 +47,7 @@
           <form:input path="artist" class="form-control" id="artist"/>
         </div>
         <div class="mb-3">
-          <label for="albumName" class="form-label">Albumn Name</label>
+          <label for="albumName" class="form-label">Album Name</label>
           <form:input path="album_title" class="form-control" id="albumName"/>
         </div>
         <div class="mb-3">

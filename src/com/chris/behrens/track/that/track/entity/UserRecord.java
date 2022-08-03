@@ -22,13 +22,16 @@ public class UserRecord {
 	@Column(name="album_title")
 	private String album_title;
 	
-	@Column(name="condition")
-	private String condition;
+	@Column(name="conditions")
+	private String conditions;
 	
 	@Column(name="url")
 	private String url;
 	
 	
+	public UserRecord() {
+		
+	}
 
 	public int getId() {
 		return id;
@@ -54,12 +57,12 @@ public class UserRecord {
 		this.album_title = album_title;
 	}
 
-	public String getCondition() {
-		return condition;
+	public String getConditions() {
+		return conditions;
 	}
 
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
 	}
 
 	public String getUrl() {
@@ -72,9 +75,12 @@ public class UserRecord {
 
 	@Override
 	public String toString() {
-		return "UserRecord [id=" + id + ", artist=" + artist + ", album_title=" + album_title + ", condition="
-				+ condition + ", url=" + url + "]";
+		return "UserRecord [id=" + id + ", artist=" + artist + ", album_title=" + album_title + ", conditions="
+				+ conditions + ", url=" + url + "]";
 	}
+
+
+	
 	
 	
 	

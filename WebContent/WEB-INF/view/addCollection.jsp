@@ -38,12 +38,33 @@
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logo" width="300" height="300">
     <div class="formCard">
       <h1>Add Record to collection</h1>
-      <form:form action="saveUserRecord" modelAttribute="userRecord" method="Post" id="userRecord">
-
+             <form:form action="saveUserRecord" modelAttribute="userRecord" method="Post" id="addUserRecord">
+      
+      <form:hidden path="id"/>
+        <div class="mb-3">
+          <label for="artist" class="form-label">Artist</label>
+          <form:input path="artist" class="form-control" id="artist"/>
+        </div>
+        <div class="mb-3">
+          <label for="albumName" class="form-label">Album Name</label>
+          <form:input path="album_title" class="form-control" id="albumName"/>
+        </div>
+        <div class="mb-3">
+            <form:select path="conditions" name ="Condition" id="Conditions"> 
+              <option value ="Used">Used</option>
+              <option value ="Unopened"> Unopened</option>
+              <option value ="New">New</option>
+           </form:select>
+          </div>
+        <div class="mb-3">
+          <label for="url" class="form-label">Album cover URL</label>
+          <form:input path="url" class="form-control" id="albumUrl"/>
+        </div> 
+        <input type="submit" value="Save" class="btn btn-danger" id="submit"/>
+      </form:form>
+<%--       <form:form action="saveUserRecord" modelAttribute="userRecord" method="Post" id="userRecord">
 			<!-- need to associate this data with record id -->
-<%-- 			<form:hidden path="id" /> --%>
-					
-			
+		<form:hidden path="id" />
         <div class="mb-3">
           <label for="artist" class="form-label">Artist</label>
           <form:input path="artist" class="form-control" id="artist"/>
@@ -56,17 +77,17 @@
           <label for="condition" class="form-label">Album Condition</label>
           <br>
           <form:select path="condition" name ="Condition" id="Condition"> 
-              <option value ="Used">Used</option>
-              <option value ="Unopened"> Unopened</option>
-              <option value ="New">New</option>
-           </form:select>
+          	<form:option value="Used" label="Used"/>
+          	<form:option value="New" label="New"/>
+          	<form:option value="Unopened" label="Unopened"/>
+ 		  </form:select>
         </div>
         <div class="mb-3">
           <label for="url" class="form-label">Album cover URL</label>
           <form:input path="url" class="form-control" id="url"/>
         </div>
         <input type="submit" value="Save" class="btn btn-danger" />
-      </form:form>
+      </form:form> --%>
     </div>
   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

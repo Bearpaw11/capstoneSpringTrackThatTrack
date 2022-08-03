@@ -36,7 +36,7 @@ public class User {
 //	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 //	@JoinColumn(name="id")
 //	private List<UserRecord> userRecords;
-//	
+	
 	//empty constructor
 	public User() {
 		
@@ -88,8 +88,7 @@ public class User {
 //	public List<UserRecord> getUserRecords() {
 //		return userRecords;
 //	}
-
-
+//
 //	public void setUserRecords(List<UserRecord> userRecords) {
 //		this.userRecords = userRecords;
 //	}

@@ -26,6 +26,10 @@ public class UserWishRecord {
 	
 	@Column(name="url")
 	private String url;
+	
+	public UserWishRecord() {
+		
+	}
 
 	public int getId() {
 		return id;

@@ -61,8 +61,8 @@
 					<tr>
 						<td>${tempUserRecord.artist}</td>
 						<td>${tempUserRecord.album_title}</td>
-						<td>${tempUserRecord.condition}</td>
-						<td><img src="${tempUserRecord.url}" width="100" height="100"></td>
+						<td>${tempUserRecord.conditions}</td>
+						<td><img src="${tempUserRecord.url}" width="100" height="100"></td> 
 						<td>
 							<!-- display the update and delete --> 
 							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
