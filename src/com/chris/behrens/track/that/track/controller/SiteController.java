@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
+import com.chris.behrens.track.that.track.entity.UserWishRecord;
 import com.chris.behrens.track.that.track.service.UserService;
 
 
@@ -70,6 +71,10 @@ public class SiteController {
 			
 			List<UserRecord> theUserRecords = userService.getUserRecords();
 			theModel.addAttribute("userRecords", theUserRecords);
+			
+			
+			List<UserWishRecord> theUserWishRecords = userService.getUserWishRecords();
+			theModel.addAttribute("userWishRecords", theUserWishRecords);
 			return "mainUser";
 		}
 		
@@ -91,9 +96,25 @@ public class SiteController {
 			return "redirect:/mainUser";
 		}
 		
+	
 		@GetMapping("/addWish")
-		public String addWish() {
+		public String addWish(Model theModel) {
+			// create model attribute to bind form data
+			UserWishRecord theUserWishRecord = new UserWishRecord();
+			
+			theModel.addAttribute("userWishRecord", theUserWishRecord);
+			
 			return "addWish";
 		}
+		
+		@PostMapping("/saveUserWishRecord")
+		public String saveUserWishRecord(@ModelAttribute("userWishRecord") UserWishRecord theUserWishRecord) {
+			///save the customer using service
+			userService.saveUserWishRecord(theUserWishRecord);
+			
+			return "redirect:/mainUser";
+		}
+		
+		
 }
 

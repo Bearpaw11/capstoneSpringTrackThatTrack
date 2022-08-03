@@ -13,10 +13,9 @@
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/addCollection.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
-
- 
 </head>
+
+
 <body>
   <nav class="navbar navbar-expand-sm navClass">
     <div class="container-fluid">
@@ -39,10 +38,10 @@
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logo" width="300" height="300">
     <div class="formCard">
       <h1>Add Record to collection</h1>
-      <form:form action="saveUserRecord" modelAttribute="userRecord" method="POST">
+      <form:form action="saveUserRecord" modelAttribute="userRecord" method="Post" id="userRecord">
 
 			<!-- need to associate this data with record id -->
-			<form:hidden path="id" />
+<%-- 			<form:hidden path="id" /> --%>
 					
 			
         <div class="mb-3">
@@ -50,33 +49,28 @@
           <form:input path="artist" class="form-control" id="artist"/>
         </div>
         <div class="mb-3">
-          <label for="albumName" class="form-label">Album Name</label>
-          <form:input path="album_title" class="form-control" id="albumName"/>
+          <label for="album_title" class="form-label">Album Name</label>
+          <form:input path="album_title" class="form-control" id="album_title"/>
         </div>
         <div class="mb-3">
-          <ul class="list">
-            <li class="bigfield">
-            <label for="condition" class="form-label">Album Condition</label>
-            <br>
-              <form:select path="condition" name ="Condition" id="Condition"> 
-                 <option value ="Used">Used</option>
-                 <option value ="Unopened"> Unopened</option>
-                 <option value ="New">New</option>
-              </form:select>
-            </li>
-           </ul>
+          <label for="condition" class="form-label">Album Condition</label>
+          <br>
+          <form:select path="condition" name ="Condition" id="Condition"> 
+              <option value ="Used">Used</option>
+              <option value ="Unopened"> Unopened</option>
+              <option value ="New">New</option>
+           </form:select>
         </div>
         <div class="mb-3">
-          <label for="albumUrl" class="form-label">Album cover URL</label>
-          <form:input path="url" class="form-control" id="albumUrl"/>
+          <label for="url" class="form-label">Album cover URL</label>
+          <form:input path="url" class="form-control" id="url"/>
         </div>
-        <input type="submit" value="Save" class="save" />
+        <input type="submit" value="Save" class="btn btn-danger" />
       </form:form>
     </div>
   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
-  <script src="../Scripts/addCollection.js"></script>
 </body>
 </html>

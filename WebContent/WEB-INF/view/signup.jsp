@@ -49,19 +49,19 @@
       <form:form action="saveUser" modelAttribute="user" method="Post" id="signup">
       <form:hidden path="id"/>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <label for="email" class="form-label">Email address</label>
           <form:input path="email" id="email" type="email" class="form-control"/>
         </div>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">User Name</label>
+          <label for="userName" class="form-label">User Name</label>
           <form:input path="userName"  type="text" class="form-control" id="UserName"/>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label" >Password</label>
+          <label for="pasword" class="form-label" >Password</label>
           <input type="password" class="form-control" id="password" />
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+          <label for="password" class="form-label">Confirm Password</label>
           <form:input path="password" type="password" class="form-control" id="confirm" onchange="checkPass()"/>
         </div>
         <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled />

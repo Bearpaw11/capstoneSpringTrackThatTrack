@@ -42,21 +42,13 @@
 				   onclick="window.location.href='addCollection'; return false;"
 				   class="add-button"
 			/>
-			
-			<input type="button" value="Add record to wsh list"
-				   onclick="window.location.href='showFormForAdd'; return false;"
+			<input type="button" value="Add record to wish list"
+				   onclick="window.location.href='addWish'; return false;"
 				   class="add-button"
 			/>
-		<%-- 	<a href="${pageContext.request.contextPath}/addCollection"
-				class="btn">Add record to collection</a>  --%>
-			<%-- <a href="${pageContext.request.contextPath}/addWish" class="btn">Add
-				record to wish list</a> --%>
 		</div>
 		<h1 class="current">Current Collection</h1>
 		<div class="tableDiv">
-
-
-
 			<table class="table table-striped">
 				<tr>
 					<th>Artist</th>
@@ -64,128 +56,49 @@
 					<th>Condition</th>
 					<th>Album Cover</th>
 				</tr>
-
-				<!-- loop over and print our customers -->
+				<!-- loop over and print our records -->
 				<c:forEach var="tempUserRecord" items="${userRecords}">
-
-					<!-- construct an "update" link with customer id -->
-					<%-- <c:url var="updateLink" value="/customer/showFormForUpdate">
-						<c:param name="customerId" value="${tempCustomer.id}" />
-					</c:url> --%>
-
 					<tr>
 						<td>${tempUserRecord.artist}</td>
 						<td>${tempUserRecord.album_title}</td>
 						<td>${tempUserRecord.condition}</td>
 						<td><img src="${tempUserRecord.url}" width="100" height="100"></td>
-
 						<td>
-							<!-- display the update link --> 
-							
+							<!-- display the update and delete --> 
 							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
-							<button type="button" class="btn btn-danger"><a class="button" href="${updateLink}" >Delete</a></button>
-							
-							
+							<button type="button" class="btn btn-danger"><a class="button" href="${deleteLink}" >Delete</a></button>	
 						</td>
-
 					</tr>
 
 				</c:forEach>
-
 			</table>
-
-
-
-
-
-
-
-			<!-- 	<table class="table table-striped">
-				<thead>
-					<tr>
-						<th scope="col">Artist</th>
-						<th scope="col">Album Name</th>
-						<th scope="col">Condition</th>
-						<th scope="col">Album Picture</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Bruce Springsteen</td>
-						<td>Born in the U.S.A</td>
-						<td>Unopened</td>
-						<td><img
-							src="https://upload.wikimedia.org/wikipedia/en/3/31/BruceBorn1984.JPG"
-							width="100" height="100"></td>
-						<td><button type="button" class="btn btn-danger mybtn">Update</button>
-							<button type="button" class="btn btn-danger">Delete</button></td>
-					</tr>
-					<tr>
-						<td>Led Zepplin</td>
-						<td>Four</td>
-						<td>Used</td>
-						<td><img
-							src="https://upload.wikimedia.org/wikipedia/en/thumb/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg/220px-Led_Zeppelin_-_Led_Zeppelin_IV.jpg"
-							width="100" height="100"></td>
-						<td><button type="button" class="btn btn-danger mybtn">Update</button>
-							<button type="button" class="btn btn-danger">Delete</button></td>
-					</tr>
-					<tr>
-						<td>Pink Floyd</td>
-						<td>Dark Side of the Moon</td>
-						<td>Used</td>
-						<td><img
-							src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Dark_Side_of_the_Moon.png/220px-Dark_Side_of_the_Moon.png"
-							width="100" height="100"></td>
-						<td><button type="button" class="btn btn-danger mybtn">Update</button>
-							<button type="button" class="btn btn-danger">Delete</button></td>
-					</tr>
-				</tbody>
-			</table> -->
 		</div>
+		
 		<h1 class="wish">My Wish List</h1>
 		<div class="tableDiv2">
 			<table class="table table-striped">
-				<thead>
 					<tr>
 						<th scope="col">Artist</th>
-						<th scope="col">Album Name</th>
+						<th scope="col">Album Title</th>
 						<th scope="col">Estimated price</th>
-						<th scope="col">Album Picture</th>
+						<th scope="col">Album Cover</th>
 					</tr>
-				</thead>
-				<tbody>
+			<c:forEach var="tempUserWishRecord" items="${userWishRecords}">
 					<tr>
-						<td>Eric Clapton</td>
-						<td>Unplugged</td>
-						<td>$55</td>
-						<td><img
-							src="https://upload.wikimedia.org/wikipedia/en/9/99/Eric_Clapton_Unplugged.jpg"
-							width="100" height="100"></td>
-						<td><button type="button" class="btn btn-danger mybtn">Update</button>
-							<button type="button" class="btn btn-danger">Delete</button></td>
+						<td>${tempUserWishRecord.artist}</td>
+						<td>${tempUserWishRecord.album_title}</td>
+						<td>${tempUserWishRecord.price}$</td>
+						<td><img src="${tempUserWishRecord.url}" width="100" height="100"></td>
+						<td>
+							<!-- display the update and delete --> 
+							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
+							<button type="button" class="btn btn-danger"><a class="button" href="${deleteLink}" >Delete</a></button>	
+						</td>
 					</tr>
-					<tr>
-						<td>Johnny Cash</td>
-						<td>At Folsom Prison</td>
-						<td>$35</td>
-						<td><img
-							src="https://upload.wikimedia.org/wikipedia/en/b/bf/Johnny_Cash_At_Folsom_Prison.jpg"
-							width="100" height="100"></td>
-						<td><button type="button" class="btn btn-danger mybtn">Update</button>
-							<button type="button" class="btn btn-danger">Delete</button></td>
-					</tr>
-					<tr>
-						<td>The Beatles</td>
-						<td>White Album</td>
-						<td>$60</td>
-						<td><img
-							src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/TheBeatles68LP.jpg/440px-TheBeatles68LP.jpg"
-							width="100" height="100"></td>
-						<td><button type="button" class="btn btn-danger mybtn">Update</button>
-							<button type="button" class="btn btn-danger">Delete</button></td>
-					</tr>
-				</tbody>
+
+				</c:forEach>
+				
+			
 			</table>
 		</div>
 	</div>

@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.chris.behrens.track.that.track.dao.UserDAO;
 import com.chris.behrens.track.that.track.dao.UserRecordDAO;
+import com.chris.behrens.track.that.track.dao.UserWishRecordDAO;
 import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
+import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -17,6 +19,8 @@ public class UserServiceImpl implements UserService{
 	private UserDAO userDAO;
 	@Autowired
 	private UserRecordDAO userRecordDAO;
+	@Autowired
+	private UserWishRecordDAO userWishRecordDAO;
 	
 	@Override
 	@Transactional
@@ -32,8 +36,20 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	@Transactional
+	public List<UserWishRecord> getUserWishRecords() {
+		return userWishRecordDAO.getUserWishRecords();
+	}
+	
+	@Override
+	@Transactional
 	public void saveUserRecord(UserRecord theUserRecord) {
 		userRecordDAO.saveUserRecord(theUserRecord);
+	}
+	
+	@Override
+	@Transactional
+	public void saveUserWishRecord(UserWishRecord theUserWishRecord) {
+		userWishRecordDAO.saveUserWishRecord(theUserWishRecord);
 	}
 	
 	@Override

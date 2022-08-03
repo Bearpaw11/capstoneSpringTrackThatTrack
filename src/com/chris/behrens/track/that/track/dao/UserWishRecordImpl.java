@@ -8,36 +8,34 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
-import com.chris.behrens.track.that.track.entity.UserRecord;
+import com.chris.behrens.track.that.track.entity.User;
+import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
 @Repository
-public class UserRecordDAOImpl implements UserRecordDAO {
-	
+public class UserWishRecordImpl implements UserWishRecordDAO{
+
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public List<UserRecord> getUserRecords(){
+	public List<UserWishRecord> getUserWishRecords(){
 		
 		// get the current session from hibernate
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// create a query
-		Query<UserRecord> theQuery = currentSession.createQuery("from UserRecord order by artist", UserRecord.class);
+		Query<UserWishRecord> theQuery = currentSession.createQuery("from UserWishRecord order by artist", UserWishRecord.class);
 
 		// execute the query and get results
-		List<UserRecord> userRecords = theQuery.getResultList();
+		List<UserWishRecord> userWishRecords = theQuery.getResultList();
 		
-		return userRecords;
+		return userWishRecords;
 	}
 	
 	@Override
-	public void saveUserRecord(UserRecord theUserRecord) {
+	public void saveUserWishRecord(UserWishRecord theUserWishRecord) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//save/update the customer
-		currentSession.saveOrUpdate(theUserRecord);
+		currentSession.saveOrUpdate(theUserWishRecord);
 	}
-	
 }

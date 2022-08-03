@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,31 +39,32 @@
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1>Add Record to Wishlist</h1>
-      <form id="addWish">
+       <form:form action="saveUserWishRecord" modelAttribute="userWishRecord" method="Post" id="addWish">
+      
+      <form:hidden path="id"/>
         <div class="mb-3">
           <label for="artist" class="form-label">Artist</label>
-          <input type="text" class="form-control" id="artist">
+          <form:input path="artist" class="form-control" id="artist"/>
         </div>
         <div class="mb-3">
           <label for="albumName" class="form-label">Albumn Name</label>
-          <input type="text" class="form-control" id="albumName">
+          <form:input path="album_title" class="form-control" id="albumName"/>
         </div>
         <div class="mb-3">
           <div class="mb-3">
-            <label for="cost" class="form-label">Expected Cost</label>
-            <input type="text" class="form-control" id="cost">
+            <label for="price" class="form-label">Expected Cost</label>
+            <form:input path="price" class="form-control" id="price"/>
           </div>
         <div class="mb-3">
-          <label for="albumUrl" class="form-label">Album cover URL</label>
-          <input type="text" class="form-control" id="albumUrl">
+          <label for="url" class="form-label">Album cover URL</label>
+          <form:input path="url" class="form-control" id="albumUrl"/>
         </div>
-        <button type="submit" class="btn btn-danger">Add to Wishlist</button>
-      </form>
+        <input type="submit" value="Save" class="btn btn-danger" id="submit"/>
+      </form:form>
     </div>
   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
-  <script src="../Scripts/addWish.js"></script>
 </body>
 </html>

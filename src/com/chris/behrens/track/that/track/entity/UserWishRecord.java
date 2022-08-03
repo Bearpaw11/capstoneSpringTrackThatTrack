@@ -8,9 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="userRecords")
-public class UserRecord {
-	
+@Table(name="userWishRecords")
+public class UserWishRecord {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -22,13 +21,11 @@ public class UserRecord {
 	@Column(name="album_title")
 	private String album_title;
 	
-	@Column(name="condition")
-	private String condition;
+	@Column(name="price")
+	private Integer price;
 	
 	@Column(name="url")
 	private String url;
-	
-	
 
 	public int getId() {
 		return id;
@@ -54,12 +51,12 @@ public class UserRecord {
 		this.album_title = album_title;
 	}
 
-	public String getCondition() {
-		return condition;
+	public Integer getPrice() {
+		return price;
 	}
 
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 
 	public String getUrl() {
@@ -68,12 +65,6 @@ public class UserRecord {
 
 	public void setUrl(String url) {
 		this.url = url;
-	}
-
-	@Override
-	public String toString() {
-		return "UserRecord [id=" + id + ", artist=" + artist + ", album_title=" + album_title + ", condition="
-				+ condition + ", url=" + url + "]";
 	}
 	
 	
