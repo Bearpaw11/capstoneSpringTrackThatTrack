@@ -39,5 +39,12 @@ public class UserRecordDAOImpl implements UserRecordDAO {
 		//save/update the customer
 		currentSession.saveOrUpdate(theUserRecord);
 	}
+
+	@Override
+	public UserRecord getUserRecord(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		UserRecord theUserRecord = currentSession.get(UserRecord.class, theId);
+		return theUserRecord;
+	}
 	
 }

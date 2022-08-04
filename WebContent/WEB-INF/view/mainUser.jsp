@@ -58,6 +58,15 @@
 				</tr>
 				<!-- loop over and print our records -->
 				<c:forEach var="tempUserRecord" items="${userRecords}">
+				
+				<c:url var="updateLink" value="//showFormForUpdate">
+						<c:param name="recordId" value="${tempUserRecord.id}" />
+					</c:url>		
+					
+				<c:url var="deleteLink" value="/customer/delete">
+						<c:param name="customerId" value="${tempCustomer.id}" />
+				</c:url>	
+				
 					<tr>
 						<td>${tempUserRecord.artist}</td>
 						<td>${tempUserRecord.album_title}</td>
@@ -65,6 +74,7 @@
 						<td><img src="${tempUserRecord.url}" width="100" height="100"></td> 
 						<td>
 							<!-- display the update and delete --> 
+							
 							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
 							<button type="button" class="btn btn-danger"><a class="button" href="${deleteLink}" >Delete</a></button>	
 						</td>

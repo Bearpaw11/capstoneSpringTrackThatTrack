@@ -6,6 +6,7 @@ import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
 import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
+
 public interface UserService {
 	public List<User> getUsers();
 	
@@ -18,5 +19,9 @@ public interface UserService {
 	public void saveUserWishRecord(UserWishRecord theUserWishRecord);
 	
 	public void saveUser(User theUser);
+
+	public User getUser(int i);
+	
+	public UserRecord getUserRecord(int theId);
 	
 }

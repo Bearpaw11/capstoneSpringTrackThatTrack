@@ -5,7 +5,7 @@
 }
 
 .navClass {
-  background-color:rgba(34, 34, 34, 0.6);
+  background-color:rgba(34, 34, 34, 0.3);
   border-bottom: 2px solid red;
   color: white;
 }
@@ -28,14 +28,18 @@ ul {
 .pageBackground{
   background-color:rgba(34, 34, 34, 0.6);
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
 }
 
 .formCard{
   margin: auto;
   width: 40%;
   color:white;
-  margin-top: -80px;
+  padding-bottom: 20px; 
+  border: 2px solid white;
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 20px; 
 }
 
 h1{

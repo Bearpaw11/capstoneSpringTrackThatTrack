@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,10 +32,22 @@ public class User {
 	@Column(name="userName")
 	private String userName;
 	
-//	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-//	@JoinColumn(name="id")
+//	@OneToMany(mappedBy="users", orphanRemoval = true, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 //	private List<UserRecord> userRecords;
-	
+//	
+//	@OneToMany(mappedBy="users", orphanRemoval = true, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+//	private List<UserWishRecord> userWishRecords;
+//	
+//	public List<UserWishRecord> getUserWishRecords() {
+//		return userWishRecords;
+//	}
+//
+//
+//	public void setUserWishRecords(List<UserWishRecord> userWishRecords) {
+//		this.userWishRecords = userWishRecords;
+//	}
+
+
 	//empty constructor
 	public User() {
 		
@@ -92,7 +103,7 @@ public class User {
 //	public void setUserRecords(List<UserRecord> userRecords) {
 //		this.userRecords = userRecords;
 //	}
-//	
+	
 	
 //Override toString method
 	@Override

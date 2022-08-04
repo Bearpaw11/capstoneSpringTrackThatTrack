@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
 import com.chris.behrens.track.that.track.entity.UserWishRecord;
 import com.chris.behrens.track.that.track.service.UserService;
-
 
 
 
@@ -82,6 +82,9 @@ public class SiteController {
 		@GetMapping("/addCollection")
 		public String addCollection(Model theModel) {
 			UserRecord theUserRecord = new UserRecord();
+//			get user 9 from the DB
+//			User userNine = userService.getUser(9);
+//			theUserRecord.setUser(userNine);
 			theModel.addAttribute("userRecord", theUserRecord);
 			return "addCollection";
 		}
@@ -92,25 +95,20 @@ public class SiteController {
 			
 			return "redirect:/mainUser";
 		}
+	
 		
-//		@GetMapping("/addCollection")
-//		public String addCollection(Model theModel) {
-//			// create model attribute to bind form data
-//			UserRecord theUserRecord = new UserRecord();
-//			
-//			theModel.addAttribute("userRecord", theUserRecord);
-//			
-//			return "addCollection";
-//		}
-//		
-//		@PostMapping("/saveUserRecord")
-//		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord) {
-//			///save the customer using service
-//			userService.saveUserRecord(theUserRecord);
-//			
-//			return "redirect:/mainUser";
-//		}
-//		
+		@GetMapping("/showFormForUpdate")
+		public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel) {
+			//get the customer from our service
+				UserRecord theUserRecord = userService.getUserRecord(theId);
+			
+			// set customer as a model attribute to pre-populate the form
+			theModel.addAttribute("userRecord", theUserRecord);
+			
+			//send over to our form
+			return "addCollection";
+		}
+		
 	
 		@GetMapping("/addWish")
 		public String addWish(Model theModel) {
