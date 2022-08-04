@@ -10,5 +10,6 @@ public interface UserRecordDAO {
 	public List<UserRecord> getUserRecords();
 	public void saveUserRecord(UserRecord theUserRecord);
 	public UserRecord getUserRecord(int theId);
+	public void deleteUserRecord(int theId);
 	
 }

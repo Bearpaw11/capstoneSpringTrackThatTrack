@@ -109,6 +109,15 @@ public class SiteController {
 			return "addCollection";
 		}
 		
+		@GetMapping("/deleteRecord")
+		public String deleteRecord(@RequestParam("userRecordId") int theId) {
+			
+			// delete the customer
+			userService.deleteUserRecord(theId);
+			
+			return "redirect:/mainUser";
+		}
+		
 	
 		@GetMapping("/addWish")
 		public String addWish(Model theModel) {

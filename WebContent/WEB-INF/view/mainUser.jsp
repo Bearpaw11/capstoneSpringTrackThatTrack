@@ -59,12 +59,12 @@
 				<!-- loop over and print our records -->
 				<c:forEach var="tempUserRecord" items="${userRecords}">
 				
-				<c:url var="updateLink" value="//showFormForUpdate">
+				<c:url var="updateLink" value="/showFormForUpdate">
 						<c:param name="recordId" value="${tempUserRecord.id}" />
 					</c:url>		
 					
-				<c:url var="deleteLink" value="/customer/delete">
-						<c:param name="customerId" value="${tempCustomer.id}" />
+				<c:url var="deleteLink" value="/deleteRecord">
+						<c:param name="userRecordId" value="${tempUserRecord.id}" />
 				</c:url>	
 				
 					<tr>

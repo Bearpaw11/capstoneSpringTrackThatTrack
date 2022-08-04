@@ -24,4 +24,5 @@ public interface UserService {
 	
 	public UserRecord getUserRecord(int theId);
 	
+	public void deleteUserRecord(int theId);
 }

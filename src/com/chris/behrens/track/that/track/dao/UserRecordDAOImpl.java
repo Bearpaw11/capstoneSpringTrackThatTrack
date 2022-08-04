@@ -46,5 +46,14 @@ public class UserRecordDAOImpl implements UserRecordDAO {
 		UserRecord theUserRecord = currentSession.get(UserRecord.class, theId);
 		return theUserRecord;
 	}
+
+	@Override
+	public void deleteUserRecord(int theId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		UserRecord theUserRecord = currentSession.get(UserRecord.class, theId);
+	   currentSession.delete(theUserRecord);
+			
+	}
 	
 }

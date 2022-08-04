@@ -70,4 +70,11 @@ public class UserServiceImpl implements UserService{
 	public UserRecord getUserRecord(int theId) {
 		return userRecordDAO.getUserRecord(theId);
 	}
+
+	@Override
+	@Transactional
+	public void deleteUserRecord(int theId) {
+		userRecordDAO.deleteUserRecord(theId);
+		
+	}
 }
