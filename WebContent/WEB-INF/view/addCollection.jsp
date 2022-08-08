@@ -48,10 +48,12 @@
 			alt="logo" width="300" height="300">
 		<div class="formCard">
 			<h1>Add Record to collection</h1>
+		
 			<form:form action="saveUserRecord" modelAttribute="userRecord"
 				method="Post" id="addUserRecord">
 				<form:hidden path="id" />
-				<%-- <form:hidden path="user_id" value="9" /> --%>
+				
+			<%-- 	 <form:hidden path="users_id" value="${loggedInUser.id}"/> --%>
 				<div class="mb-3">
 					<label for="artist" class="form-label">Artist</label>
 					<form:input path="artist" class="form-control" id="artist" />

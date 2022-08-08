@@ -67,14 +67,34 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	@Transactional
-	public UserRecord getUserRecord(int theId) {
-		return userRecordDAO.getUserRecord(theId);
+	public List<UserRecord> getUserRecord(int UserId) {
+		return userRecordDAO.getUserRecord(UserId);
 	}
 
 	@Override
 	@Transactional
 	public void deleteUserRecord(int theId) {
 		userRecordDAO.deleteUserRecord(theId);
+		
+	}
+
+	@Override
+	@Transactional
+	public User verifyLogin(String theUserName, String thePassword) {
+		return userDAO.verifyLogin(theUserName, thePassword);		
+	}
+
+	@Override
+	@Transactional
+	public List<UserRecord> getAUserRecords(int id) {
+		
+		return userDAO.getAUserRecords(id);
+	}
+
+	@Override
+	@Transactional
+	public void saveUserRecord(UserRecord theUserRecord, int i) {
+		userDAO.saveUserRecord(theUserRecord, i);
 		
 	}
 }

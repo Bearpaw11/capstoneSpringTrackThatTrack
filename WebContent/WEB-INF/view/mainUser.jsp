@@ -35,7 +35,7 @@
 		</div>
 	</nav>
 	<div class="pageBackground">
-		<h1 class="welcome">Welcome, ILuvRecords!</h1>
+		<h1 class="welcome">Welcome, ${loggedInUser.userName}!</h1>
 		<h3 class="greeting">What would you like to do today?</h3>
 		<div class="buttonDiv">
 			<input type="button" value="Add record to collection"

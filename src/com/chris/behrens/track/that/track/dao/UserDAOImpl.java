@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.chris.behrens.track.that.track.entity.User;
+import com.chris.behrens.track.that.track.entity.UserRecord;
 
 
 @Repository
@@ -46,5 +47,35 @@ public class UserDAOImpl implements UserDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		User user = currentSession.get(User.class, i);
 		return user;
+	}
+
+	@Override
+	public User verifyLogin(String theUserName, String thePassword) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query<User> theQuery = currentSession.createQuery("from User where userName=:theUserName", User.class);
+		theQuery.setParameter("theUserName", theUserName);
+		User user = theQuery.uniqueResult();
+		if(user !=null && user.getPassword().equals(thePassword)) {
+			return user;
+		}
+		return null;
+	}
+
+	@Override
+	public List<UserRecord> getAUserRecords(int id) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		//get the user based on the id
+		User user = currentSession.get(User.class, id);
+		List<UserRecord> userRecords = user.getUserRecords();
+		return null;
+	}
+
+	@Override
+	public void saveUserRecord(UserRecord theUserRecord, int i) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		User user = currentSession.get(User.class, i);
+		theUserRecord.setUser(user);
+		currentSession.saveOrUpdate(theUserRecord);
+		
 	}
 }

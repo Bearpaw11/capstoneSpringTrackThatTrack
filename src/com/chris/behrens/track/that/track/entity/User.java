@@ -1,5 +1,6 @@
 package com.chris.behrens.track.that.track.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -32,8 +33,11 @@ public class User {
 	@Column(name="userName")
 	private String userName;
 	
-//	@OneToMany(mappedBy="users", orphanRemoval = true, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-//	private List<UserRecord> userRecords;
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="user")
+	
+//	private List<UserRecord> userRecords = new ArrayList<>();
+	
+	private List<UserRecord> userRecords = new ArrayList<>();
 //	
 //	@OneToMany(mappedBy="users", orphanRemoval = true, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 //	private List<UserWishRecord> userWishRecords;
@@ -96,13 +100,13 @@ public class User {
 	}
 
 
-//	public List<UserRecord> getUserRecords() {
-//		return userRecords;
-//	}
-//
-//	public void setUserRecords(List<UserRecord> userRecords) {
-//		this.userRecords = userRecords;
-//	}
+	public List<UserRecord> getUserRecords() {
+		return userRecords;
+	}
+
+	public void setUserRecords(List<UserRecord> userRecords) {
+		this.userRecords = userRecords;
+	}
 	
 	
 //Override toString method

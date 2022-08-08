@@ -2,6 +2,7 @@ package com.chris.behrens.track.that.track.dao;
 
 import java.util.List;
 
+
 import com.chris.behrens.track.that.track.entity.UserRecord;
 
 public interface UserRecordDAO {
@@ -9,7 +10,7 @@ public interface UserRecordDAO {
 	
 	public List<UserRecord> getUserRecords();
 	public void saveUserRecord(UserRecord theUserRecord);
-	public UserRecord getUserRecord(int theId);
+	public List<UserRecord> getUserRecord(int UserId);
 	public void deleteUserRecord(int theId);
 	
 }

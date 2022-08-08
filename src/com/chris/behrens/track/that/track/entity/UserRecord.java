@@ -31,17 +31,20 @@ public class UserRecord {
 	@Column(name="url")
 	private String url;
 	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="users_id")
-//	private User user;
-//	
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	
+	@ManyToOne
+	@JoinColumn(name="users_id")
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	
 
 	public UserRecord() {
 		

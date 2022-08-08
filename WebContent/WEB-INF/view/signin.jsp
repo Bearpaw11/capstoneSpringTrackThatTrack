@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,22 +40,25 @@
   </nav>
 
   <div class="pageBackground">
+  <div class="error">${loginError}</div>
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1 class="signInHeader">Sign In</h1>
-      <form id="login">
-      
+        <form:form action="loginUser" modelAttribute="loginHelper" method="Post" id="signin">
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">User Name</label>
-          <input type="text" class="form-control" id="exampleUserNameEmail1" aria-describedby="emailHelp">
-
+          <label for="userName" class="form-label">User Name</label>
+          <form:input path="userName" class="form-control" id="userName"/>
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <label for="password" class="form-label">Password</label>
+          <form:input path="password" type="password" class="form-control" id="password"/>
         </div>
-        <button id="login" type="submit" class="btn btn-danger">Sign In</button>
-      </form>
+        <input type="submit" value="Sign In"  class="btn btn-danger btn" />
+<!-- 				   onclick="window.location.href='mainUser'; return false;" -->
+				  
+				
+        <!-- <button id="login" type="submit" class="btn btn-danger">Sign In</button> -->
+      </form:form>
     </div>
   </div>
 

@@ -22,7 +22,15 @@ public interface UserService {
 
 	public User getUser(int i);
 	
-	public UserRecord getUserRecord(int theId);
+	public List<UserRecord> getUserRecord(int UserId);
 	
 	public void deleteUserRecord(int theId);
+
+	public User verifyLogin(String userName, String password);
+
+	public List<UserRecord> getAUserRecords(int id);
+
+	public void saveUserRecord(UserRecord theUserRecord, int i);
+	
+	
 }

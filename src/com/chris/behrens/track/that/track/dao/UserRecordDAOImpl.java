@@ -8,7 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
+import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
 
 @Repository
@@ -36,15 +36,18 @@ public class UserRecordDAOImpl implements UserRecordDAO {
 	public void saveUserRecord(UserRecord theUserRecord) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		//save/update the customer
+		//save/update the 
 		currentSession.saveOrUpdate(theUserRecord);
 	}
 
 	@Override
-	public UserRecord getUserRecord(int theId) {
+	public List<UserRecord> getUserRecord(int UserId) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		UserRecord theUserRecord = currentSession.get(UserRecord.class, theId);
-		return theUserRecord;
+		System.out.println(UserId+"here is my number");
+		Query<UserRecord> theQuery = currentSession.createQuery("from UserRecord where users_id=:UserId order by artist", UserRecord.class);
+		theQuery.setParameter("UserId", UserId);
+		List<UserRecord> theUserRecords = theQuery.getResultList();
+		return theUserRecords;
 	}
 
 	@Override

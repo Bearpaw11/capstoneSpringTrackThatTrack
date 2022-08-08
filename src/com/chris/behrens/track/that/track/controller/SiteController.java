@@ -2,6 +2,8 @@ package com.chris.behrens.track.that.track.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,25 +55,55 @@ public class SiteController {
 			return "signup";
 		}
 		
+		
 		@PostMapping("saveUser")
 		public String saveUser(@ModelAttribute("user") User theUser) {
 			//save the user using the service
 			userService.saveUser(theUser);
-			
+		
 			return "redirect:/signin";
 		}
 		
 		@GetMapping("/signin")
-		public String signin() {
+		public String signin(Model theModel) {
+			
+			LoginHelper loginHelper = new LoginHelper();
+			theModel.addAttribute("loginHelper", loginHelper);
 			return "signin";
 		}
 		
+		@PostMapping("/loginUser")
+			public String verifyLogin(@ModelAttribute("loginHelper") LoginHelper loginHelper, Model theModel, HttpSession session){
+				User user = userService.verifyLogin(loginHelper.getUserName(), loginHelper.getPassword());
+				
+				if(user == null) {
+					//error message if login fails
+					theModel.addAttribute("loginError", "Error logging in. Please Try again.");
+					return "signin";
+				}
+				session.setAttribute("loggedInUser", user);
+				//get the records attach to the model 
+				
+//				List<UserRecord> userRecords = userService.getAUserRecords(user.getId());
+//				theModel.addAttribute("userRecords", userRecords);
+				return "redirect:/mainUser";
+			}			
+		
 		@GetMapping("/mainUser")
-		public String mainUser(Model theModel) {
+		public String mainUser(Model theModel, HttpSession session) {
+		
+				
+		User user =  (User) (session.getAttribute("loggedInUser"));
+		int UserId =(user.getId());
+		System.out.println(UserId);
+			List<UserRecord> theUserRecords = userService.getUserRecord(UserId);
+			System.out.println(theUserRecords);
+			session.setAttribute("userRecords", theUserRecords);
 			
-			List<UserRecord> theUserRecords = userService.getUserRecords();
-			theModel.addAttribute("userRecords", theUserRecords);
-			
+//			Object user = session.getAttribute("loggedInUser");
+//			int userId = user.getId()
+//			List<UserRecord> loggedInUserRecords = userService.getAUserRecords(session.getAttribute("loggedInUser"));
+//			theModel.addAttribute("loggedInUserRecords", loggedInUserRecords);
 			
 			List<UserWishRecord> theUserWishRecords = userService.getUserWishRecords();
 			theModel.addAttribute("userWishRecords", theUserWishRecords);
@@ -80,7 +112,7 @@ public class SiteController {
 		
 		
 		@GetMapping("/addCollection")
-		public String addCollection(Model theModel) {
+		public String addCollection(Model theModel, HttpSession session) {
 			UserRecord theUserRecord = new UserRecord();
 //			get user 9 from the DB
 //			User userNine = userService.getUser(9);
@@ -90,24 +122,28 @@ public class SiteController {
 		}
 		
 		@PostMapping("/saveUserRecord")
-		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord) {
-			userService.saveUserRecord(theUserRecord);
+		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord, @ModelAttribute("loggedInUser") User user) {
+//			User tempUser = userService.getUser(11);
+//			theUserRecord.setUser(tempUser);
+			// TODO this is hardcoded to add record to user ID 11 ---figure out how to get userId who is logged in
+//			 int theId = Integer.parseInt("loggedInUser.id");
+			userService.saveUserRecord(theUserRecord, 11);
 			
 			return "redirect:/mainUser";
 		}
 	
 		
-		@GetMapping("/showFormForUpdate")
-		public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel) {
-			//get the customer from our service
-				UserRecord theUserRecord = userService.getUserRecord(theId);
-			
-			// set customer as a model attribute to pre-populate the form
-			theModel.addAttribute("userRecord", theUserRecord);
-			
-			//send over to our form
-			return "addCollection";
-		}
+//		@GetMapping("/showFormForUpdate")
+//		public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel) {
+//			//get the customer from our service
+//				UserRecord theUserRecord = userService.getUserRecord(theId);
+//			
+//			// set customer as a model attribute to pre-populate the form
+//			theModel.addAttribute("userRecord", theUserRecord);
+//			
+//			//send over to our form
+//			return "addCollection";
+//		}
 		
 		@GetMapping("/deleteRecord")
 		public String deleteRecord(@RequestParam("userRecordId") int theId) {
