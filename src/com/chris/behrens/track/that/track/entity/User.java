@@ -30,17 +30,15 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@Column(name="userName")
+	@Column(name="user_name")
 	private String userName;
 	
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="user")
 	
-//	private List<UserRecord> userRecords = new ArrayList<>();
+
 	
 	private List<UserRecord> userRecords = new ArrayList<>();
-//	
-//	@OneToMany(mappedBy="users", orphanRemoval = true, fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-//	private List<UserWishRecord> userWishRecords;
+
 //	
 //	public List<UserWishRecord> getUserWishRecords() {
 //		return userWishRecords;
