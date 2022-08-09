@@ -18,18 +18,15 @@ public class UserRecordDAOImpl implements UserRecordDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public List<UserRecord> getUserRecords(){
+	public UserRecord getUserRecord(int theId){
 		
-		// get the current session from hibernate
+	
 		Session currentSession = sessionFactory.getCurrentSession();
 		
-		// create a query
-		Query<UserRecord> theQuery = currentSession.createQuery("from UserRecord order by artist", UserRecord.class);
+		UserRecord userRecord = currentSession.get(UserRecord.class, theId);
 
-		// execute the query and get results
-		List<UserRecord> userRecords = theQuery.getResultList();
 		
-		return userRecords;
+		return userRecord;
 	}
 	
 	@Override
@@ -41,7 +38,7 @@ public class UserRecordDAOImpl implements UserRecordDAO {
 	}
 
 	@Override
-	public List<UserRecord> getUserRecord(int UserId) {
+	public List<UserRecord> getUserRecords(int UserId) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		System.out.println(UserId+"here is my number");
 		Query<UserRecord> theQuery = currentSession.createQuery("from UserRecord where users_id=:UserId order by artist", UserRecord.class);

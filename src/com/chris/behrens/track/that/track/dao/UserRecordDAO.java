@@ -8,9 +8,9 @@ import com.chris.behrens.track.that.track.entity.UserRecord;
 public interface UserRecordDAO {
 
 	
-	public List<UserRecord> getUserRecords();
+	public UserRecord getUserRecord(int theId);
 	public void saveUserRecord(UserRecord theUserRecord);
-	public List<UserRecord> getUserRecord(int UserId);
+	public List<UserRecord> getUserRecords(int UserId);
 	public void deleteUserRecord(int theId);
 	
 }

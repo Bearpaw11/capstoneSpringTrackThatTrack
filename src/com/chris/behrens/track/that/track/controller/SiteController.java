@@ -96,7 +96,7 @@ public class SiteController {
 		User user =  (User) (session.getAttribute("loggedInUser"));
 		int UserId =(user.getId());
 		System.out.println(UserId);
-			List<UserRecord> theUserRecords = userService.getUserRecord(UserId);
+			List<UserRecord> theUserRecords = userService.getUserRecords(UserId);
 			System.out.println(theUserRecords);
 			session.setAttribute("userRecords", theUserRecords);
 			
@@ -122,28 +122,30 @@ public class SiteController {
 		}
 		
 		@PostMapping("/saveUserRecord")
-		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord, @ModelAttribute("loggedInUser") User user) {
+		public String saveUserRecord(@ModelAttribute("userRecord") UserRecord theUserRecord, @ModelAttribute("loggedInUser") User user, HttpSession session) {
 //			User tempUser = userService.getUser(11);
 //			theUserRecord.setUser(tempUser);
-			// TODO this is hardcoded to add record to user ID 11 ---figure out how to get userId who is logged in
+			
 //			 int theId = Integer.parseInt("loggedInUser.id");
-			userService.saveUserRecord(theUserRecord, 11);
+			User user1 =  (User) (session.getAttribute("loggedInUser"));
+			int UserId =(user1.getId());
+			userService.saveUserRecord(theUserRecord, UserId);
 			
 			return "redirect:/mainUser";
 		}
 	
 		
-//		@GetMapping("/showFormForUpdate")
-//		public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel) {
-//			//get the customer from our service
-//				UserRecord theUserRecord = userService.getUserRecord(theId);
-//			
-//			// set customer as a model attribute to pre-populate the form
-//			theModel.addAttribute("userRecord", theUserRecord);
-//			
-//			//send over to our form
-//			return "addCollection";
-//		}
+		@GetMapping("/showFormForUpdate")
+		public String showFormForUpdate(@RequestParam("recordId") int theId, Model theModel) {
+			//get the record from our service
+			UserRecord theUserRecord = userService.getUserRecord(theId);
+			
+			// set customer as a model attribute to pre-populate the form
+			theModel.addAttribute("userRecord", theUserRecord);
+			
+			//send over to our form
+			return "addCollection";
+		}
 		
 		@GetMapping("/deleteRecord")
 		public String deleteRecord(@RequestParam("userRecordId") int theId) {

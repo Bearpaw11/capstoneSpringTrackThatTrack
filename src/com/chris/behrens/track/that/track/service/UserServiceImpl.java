@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	@Transactional
-	public List<UserRecord> getUserRecords() {
-		return userRecordDAO.getUserRecords();
+	public UserRecord getUserRecord(int theId) {
+		return userRecordDAO.getUserRecord(theId);
 	}
 	
 	@Override
@@ -67,8 +67,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	@Transactional
-	public List<UserRecord> getUserRecord(int UserId) {
-		return userRecordDAO.getUserRecord(UserId);
+	public List<UserRecord> getUserRecords(int UserId) {
+		return userRecordDAO.getUserRecords(UserId);
 	}
 
 	@Override
@@ -93,8 +93,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	@Transactional
-	public void saveUserRecord(UserRecord theUserRecord, int i) {
-		userDAO.saveUserRecord(theUserRecord, i);
+	public void saveUserRecord(UserRecord theUserRecord, int UserId) {
+		userDAO.saveUserRecord(theUserRecord, UserId);
 		
 	}
 }

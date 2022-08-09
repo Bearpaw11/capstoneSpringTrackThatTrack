@@ -41,6 +41,9 @@
            <li class="nav-item">
             <a class="nav-link" href="http://localhost:8080/spring-crm-rest/api/customers">B2B</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8081">Admin</a>
+          </li>
         </ul>
       </div>
     </div>

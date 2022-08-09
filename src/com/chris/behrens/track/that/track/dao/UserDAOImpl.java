@@ -71,9 +71,9 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void saveUserRecord(UserRecord theUserRecord, int i) {
+	public void saveUserRecord(UserRecord theUserRecord, int UserId) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		User user = currentSession.get(User.class, i);
+		User user = currentSession.get(User.class, UserId);
 		theUserRecord.setUser(user);
 		currentSession.saveOrUpdate(theUserRecord);
 		

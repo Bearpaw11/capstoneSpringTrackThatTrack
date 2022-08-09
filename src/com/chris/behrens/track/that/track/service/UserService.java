@@ -10,7 +10,7 @@ import com.chris.behrens.track.that.track.entity.UserWishRecord;
 public interface UserService {
 	public List<User> getUsers();
 	
-	public List<UserRecord> getUserRecords();
+	public UserRecord getUserRecord(int theId);
 	
 	public List<UserWishRecord> getUserWishRecords();
 	
@@ -22,7 +22,7 @@ public interface UserService {
 
 	public User getUser(int i);
 	
-	public List<UserRecord> getUserRecord(int UserId);
+	public List<UserRecord> getUserRecords(int UserId);
 	
 	public void deleteUserRecord(int theId);
 
