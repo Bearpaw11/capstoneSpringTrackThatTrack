@@ -47,7 +47,7 @@
 			src="${pageContext.request.contextPath}/resources/images/TrackThat.png"
 			alt="logo" width="300" height="300">
 		<div class="formCard">
-			<h1>Add Record to collection</h1>
+			<h1>Add/Update Record to collection</h1>
 		
 			<form:form action="saveUserRecord" modelAttribute="userRecord"
 				method="Post" id="addUserRecord">
