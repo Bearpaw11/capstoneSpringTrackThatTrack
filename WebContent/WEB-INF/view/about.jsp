@@ -43,26 +43,26 @@
     </div>
   </nav>
   <header>
-    <h1 class="aboutTitle">About "Track That Track"</h1>
-    <h2 class="aboutHeader">Does your record collection look like this?</h2>
+    <h1 class="aboutTitle fntSize">About "Track That Track"</h1>
+    <h2 class="aboutHeader fntSize">Does your record collection look like this?</h2>
     <img class="messy" src="${pageContext.request.contextPath}/resources/images/messyRecords.jpeg" alt="Messy Records" width="400" height="300">
-    <h2 class="aboutHeader">Use Track That Track to make your collection virtually look like this!</h2>
+    <h2 class="aboutHeader fntSize">Use Track That Track to make your collection virtually look like this!</h2>
     <img class="organized" src="${pageContext.request.contextPath}/resources/images/organized.jpg" alt="Messy Records" width="400" height="300">
-    <h3 class="howHeader">Here's how it works</h3>
+    <h3 class="howHeader fntSize">Here's how it works</h3>
     <ul>
-      <li class="steps">1. Use our easy signup to create a user accout</li>
-        <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/signup.png" alt="Signup Page" >
-      <li class="steps">2. Log in with your new accout</li>
-        <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/signin.png" alt="Signup Page" >
-      <li class="steps">3. You are rediredted to your main user page</li>
-        <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/home1.png" alt="Signup Page" >
+      <li class="steps">1. Use our easy sign up to create a user account</li>
+        <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signup.png" alt="Signup Page" >
+      <li class="steps">2. Log in with your new account</li>
+        <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signin.png" alt="Signup Page" >
+      <li class="steps">3. You are redirected to your main user page</li>
+        <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home1.png" alt="Signup Page" >
       <li class="steps">4. Click "Add record to collection" and get redirected to "Add Record to collection page"
       <br> Enter information about a record in your collection and click "Add to Colection"</li>
-      <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/addToCollection.png" alt="Add to collection">
-      <li class="steps">5. You are rediredted to your home page and you wil see your new record added to your collection
+      <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/addToCollection.png" alt="Add to collection">
+      <li class="steps">5. You are redirected to your home page and you wil see your new record added to your collection
       <br> Your records will automatically be sorted by artist</li> 
-      <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
-      <li class="steps">6. Use the "Add record to Wish List" button to create a wish list of records you would like to aquire</li>  
+      <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
+      <li class="steps">6. Use the "Add record to Wish List" button to create a wish list of records you would like to acquire</li>  
       <li class="steps">7. Use the Update and delete buttons as needed</li>
       <br>
       <br>
@@ -72,9 +72,7 @@
      
     </ul>
   </header>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
 </html>
