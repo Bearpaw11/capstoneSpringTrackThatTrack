@@ -47,24 +47,21 @@
 				   class="add-button"
 			/>
 		</div>
+		
 		<h1 class="current">Current Collection</h1>
 		<div class="CardDiv">
+        <%-- This Section creates a card for ever record in the user record collection--%>
 			<c:forEach var="tempUserRecord" items="${userRecords}">
 				
-				<c:url var="updateLink" value="/showFormForUpdate">
-						<c:param name="recordId" value="${tempUserRecord.id}" />
-				</c:url>		
-					
-				<c:url var="deleteLink" value="/deleteRecord">
-						<c:param name="userRecordId" value="${tempUserRecord.id}" />
-				</c:url>	
-				
+				<c:url var="updateLink" value="/showFormForUpdate"><c:param name="recordId" value="${tempUserRecord.id}" /></c:url>			
+				<c:url var="deleteLink" value="/deleteRecord"><c:param name="userRecordId" value="${tempUserRecord.id}" /></c:url>	
+				<%--This section defines the card info --%>
 				<div class="card cardStyle" style="width: 22rem;">
-  					<img src="${tempUserRecord.url}" class="card-img-top" alt="...">
+  					<img src="${tempUserRecord.url}" class="card-img-top" alt="Record Img">
  					 <div class="card-body">
-    					<h6 class="card-title cardInfo"><span class="title">Artist:</span> ${tempUserRecord.artist} </h5>
-    					<h6 class="card-title cardInfo"><span class="title">Album Title:</span> ${tempUserRecord.album_title} </h5>
-   						<h6 class="card-title cardInfo"><span class="title">Album Condition:</span> ${tempUserRecord.conditions} </h5>
+    					<h6 class="card-title cardInfo"><span class="title">Artist:</span> ${tempUserRecord.artist} </h6>
+    					<h6 class="card-title cardInfo"><span class="title">Album Title:</span> ${tempUserRecord.album_title} </h6>
+   						<h6 class="card-title cardInfo"><span class="title">Album Condition:</span> ${tempUserRecord.conditions} </h6>
     					<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
 						<button type="button" class="btn btn-danger mybtn2"><a class="button" href="${deleteLink}" >Delete</a></button>	
  					 </div>
@@ -73,39 +70,24 @@
 		</div>
 		
 		<h1 class="wish">My Wish List</h1>
-		<div class="tableDiv2">
-			<table class="table table-striped">
-					<tr>
-						<th scope="col">Artist</th>
-						<th scope="col">Album Title</th>
-						<th scope="col">Estimated price</th>
-						<th scope="col">Album Cover</th>
-					</tr>
+		<div class="CardDiv">
+		 <%-- This Section creates a card for ever record in the user wishlist--%>
 			<c:forEach var="tempUserWishRecord" items="${userWishRecords}">
 			
-				<c:url var="updateWishLink" value="/showFormForWishUpdate">
-						<c:param name="recordId" value="${tempUserWishRecord.id}" />
-					</c:url>		
-					
-				<c:url var="deleteWishLink" value="/deleteWishRecord">
-						<c:param name="userWishRecordId" value="${tempUserWishRecord.id}" />
-				</c:url>
-					<tr>
-						<td>${tempUserWishRecord.artist}</td>
-						<td>${tempUserWishRecord.album_title}</td>
-						<td>${tempUserWishRecord.price}$</td>
-						<td><img src="${tempUserWishRecord.url}" width="100" height="100"></td>
-						<td>
-							<!-- display the update and delete --> 
-							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateWishLink}">Update</a> </button>
-							<button type="button" class="btn btn-danger"><a class="button" href="${deleteWishLink}" >Delete</a></button>	
-						</td>
-					</tr>
-
-				</c:forEach>
-				
-			
-			</table>
+				<c:url var="updateWishLink" value="/showFormForWishUpdate"><c:param name="recordId" value="${tempUserWishRecord.id}" /></c:url>		
+				<c:url var="deleteWishLink" value="/deleteWishRecord"><c:param name="userWishRecordId" value="${tempUserWishRecord.id}" /></c:url>
+				<%--This section defines the card info --%>
+				<div class="card cardStyle" style="width: 22rem;">
+  					<img src="${tempUserWishRecord.url}" class="card-img-top" alt="Record img">
+ 					 <div class="card-body">
+    					<h6 class="card-title cardInfo"><span class="title">Artist:</span> ${tempUserWishRecord.artist} </h6>
+    					<h6 class="card-title cardInfo"><span class="title">Album Title:</span> ${tempUserWishRecord.album_title} </h6>
+   						<h6 class="card-title cardInfo"><span class="title">Expected Price:</span> ${tempUserWishRecord.price}$ </h6>
+    					<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateWishLink}">Update</a> </button>
+						<button type="button" class="btn btn-danger mybtn2"><a class="button" href="${deleteWishLink}" >Delete</a></button>	
+ 					 </div>
+				</div>		
+			</c:forEach>
 		</div>
 	</div>
 	<script
