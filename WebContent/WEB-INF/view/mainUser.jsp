@@ -48,40 +48,28 @@
 			/>
 		</div>
 		<h1 class="current">Current Collection</h1>
-		<div class="tableDiv">
-			<table class="table table-striped">
-				<tr>
-					<th>Artist</th>
-					<th>Album Title</th>
-					<th>Condition</th>
-					<th>Album Cover</th>
-				</tr>
-				<!-- loop over and print our records -->
-				<c:forEach var="tempUserRecord" items="${userRecords}">
+		<div class="CardDiv">
+			<c:forEach var="tempUserRecord" items="${userRecords}">
 				
 				<c:url var="updateLink" value="/showFormForUpdate">
 						<c:param name="recordId" value="${tempUserRecord.id}" />
-					</c:url>		
+				</c:url>		
 					
 				<c:url var="deleteLink" value="/deleteRecord">
 						<c:param name="userRecordId" value="${tempUserRecord.id}" />
 				</c:url>	
 				
-					<tr>
-						<td>${tempUserRecord.artist}</td>
-						<td>${tempUserRecord.album_title}</td>
-						<td>${tempUserRecord.conditions}</td>
-						<td><img src="${tempUserRecord.url}" width="100" height="100"></td> 
-						<td>
-							<!-- display the update and delete --> 
-							
-							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
-							<button type="button" class="btn btn-danger"><a class="button" href="${deleteLink}" >Delete</a></button>	
-						</td>
-					</tr>
-
-				</c:forEach>
-			</table>
+				<div class="card cardStyle" style="width: 22rem;">
+  					<img src="${tempUserRecord.url}" class="card-img-top" alt="...">
+ 					 <div class="card-body">
+    					<h6 class="card-title cardInfo"><span class="title">Artist:</span> ${tempUserRecord.artist} </h5>
+    					<h6 class="card-title cardInfo"><span class="title">Album Title:</span> ${tempUserRecord.album_title} </h5>
+   						<h6 class="card-title cardInfo"><span class="title">Album Condition:</span> ${tempUserRecord.conditions} </h5>
+    					<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
+						<button type="button" class="btn btn-danger mybtn2"><a class="button" href="${deleteLink}" >Delete</a></button>	
+ 					 </div>
+				</div>
+			</c:forEach>
 		</div>
 		
 		<h1 class="wish">My Wish List</h1>
