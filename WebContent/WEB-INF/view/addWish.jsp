@@ -28,9 +28,9 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/mainUser">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}">Logout</a>
-          </li>
+          	<li class="nav-item"><a class="nav-link" aria-current="page"
+				href="logout">Logout</a>
+			</li>
         </ul>
       </div>
     </div>

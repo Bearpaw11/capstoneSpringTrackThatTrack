@@ -29,7 +29,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="${pageContext.request.contextPath}">Logout</a></li>
+						href="logout">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -94,6 +94,14 @@
 						<th scope="col">Album Cover</th>
 					</tr>
 			<c:forEach var="tempUserWishRecord" items="${userWishRecords}">
+			
+				<c:url var="updateWishLink" value="/showFormForWishUpdate">
+						<c:param name="recordId" value="${tempUserWishRecord.id}" />
+					</c:url>		
+					
+				<c:url var="deleteWishLink" value="/deleteWishRecord">
+						<c:param name="userWishRecordId" value="${tempUserWishRecord.id}" />
+				</c:url>
 					<tr>
 						<td>${tempUserWishRecord.artist}</td>
 						<td>${tempUserWishRecord.album_title}</td>
@@ -101,8 +109,8 @@
 						<td><img src="${tempUserWishRecord.url}" width="100" height="100"></td>
 						<td>
 							<!-- display the update and delete --> 
-							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateLink}">Update</a> </button>
-							<button type="button" class="btn btn-danger"><a class="button" href="${deleteLink}" >Delete</a></button>	
+							<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateWishLink}">Update</a> </button>
+							<button type="button" class="btn btn-danger"><a class="button" href="${deleteWishLink}" >Delete</a></button>	
 						</td>
 					</tr>
 

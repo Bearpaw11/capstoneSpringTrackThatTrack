@@ -40,7 +40,6 @@ public class UserRecordDAOImpl implements UserRecordDAO {
 	@Override
 	public List<UserRecord> getUserRecords(int UserId) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		System.out.println(UserId+"here is my number");
 		Query<UserRecord> theQuery = currentSession.createQuery("from UserRecord where users_id=:UserId order by artist", UserRecord.class);
 		theQuery.setParameter("UserId", UserId);
 		List<UserRecord> theUserRecords = theQuery.getResultList();

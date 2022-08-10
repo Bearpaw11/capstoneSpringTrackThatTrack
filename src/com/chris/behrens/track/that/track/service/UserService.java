@@ -8,15 +8,14 @@ import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
 
 public interface UserService {
-	public List<User> getUsers();
+	
 	
 	public UserRecord getUserRecord(int theId);
 	
-	public List<UserWishRecord> getUserWishRecords();
+	public List<UserWishRecord> getUserWishRecords(int UserId);
 	
 	public void saveUserRecord(UserRecord theUserRecord);
 	
-	public void saveUserWishRecord(UserWishRecord theUserWishRecord);
 	
 	public void saveUser(User theUser);
 
@@ -28,9 +27,15 @@ public interface UserService {
 
 	public User verifyLogin(String userName, String password);
 
-	public List<UserRecord> getAUserRecords(int id);
+//	public List<UserRecord> getAUserRecords(int id);
 
 	public void saveUserRecord(UserRecord theUserRecord, int i);
+
+	public void saveUserWishRecord(UserWishRecord theUserWishRecord, int userId);
+
+	public UserWishRecord getUserWishRecord(int theId);
+
+	public void deleteUserWishRecord(int theId);
 	
 	
 }

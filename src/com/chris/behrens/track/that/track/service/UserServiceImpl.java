@@ -22,11 +22,7 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserWishRecordDAO userWishRecordDAO;
 	
-	@Override
-	@Transactional
-	public List<User> getUsers() {
-		return userDAO.getUsers();
-	}
+	
 	
 	@Override
 	@Transactional
@@ -34,11 +30,6 @@ public class UserServiceImpl implements UserService{
 		return userRecordDAO.getUserRecord(theId);
 	}
 	
-	@Override
-	@Transactional
-	public List<UserWishRecord> getUserWishRecords() {
-		return userWishRecordDAO.getUserWishRecords();
-	}
 	
 	@Override
 	@Transactional
@@ -46,11 +37,7 @@ public class UserServiceImpl implements UserService{
 		userRecordDAO.saveUserRecord(theUserRecord);
 	}
 	
-	@Override
-	@Transactional
-	public void saveUserWishRecord(UserWishRecord theUserWishRecord) {
-		userWishRecordDAO.saveUserWishRecord(theUserWishRecord);
-	}
+	
 	
 	@Override
 	@Transactional
@@ -84,17 +71,43 @@ public class UserServiceImpl implements UserService{
 		return userDAO.verifyLogin(theUserName, thePassword);		
 	}
 
-	@Override
-	@Transactional
-	public List<UserRecord> getAUserRecords(int id) {
-		
-		return userDAO.getAUserRecords(id);
-	}
+//	@Override
+//	@Transactional
+//	public List<UserRecord> getAUserRecords(int id) {
+//		
+//		return userDAO.getAUserRecords(id);
+//	}
 
 	@Override
 	@Transactional
 	public void saveUserRecord(UserRecord theUserRecord, int UserId) {
 		userDAO.saveUserRecord(theUserRecord, UserId);
+		
+	}
+
+	@Override
+	@Transactional
+	public void saveUserWishRecord(UserWishRecord theUserWishRecord, int userId) {
+		userDAO.saveUserWishRecord(theUserWishRecord, userId);
+		
+	}
+	@Override
+	@Transactional
+	public List<UserWishRecord> getUserWishRecords(int UserId) {
+		return userWishRecordDAO.getUserWishRecords(UserId);
+	}
+
+	@Override
+	@Transactional
+	public UserWishRecord getUserWishRecord(int theId) {
+		return userWishRecordDAO.getUserWishRecord(theId);
+	}
+
+
+	@Override
+	@Transactional
+	public void deleteUserWishRecord(int theId) {
+		userWishRecordDAO.deleteUserWishRecord(theId);
 		
 	}
 }

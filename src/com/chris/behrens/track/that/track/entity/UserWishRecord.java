@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="userWishRecords")
+@Table(name="user_wish_records")
 public class UserWishRecord {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,19 +30,17 @@ public class UserWishRecord {
 	@Column(name="url")
 	private String url;
 	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="users_id")
-//	private User user;
-//	public UserWishRecord() {
-//		
-//	}
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
+	@ManyToOne
+	@JoinColumn(name="users_id")
+	private User user;
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 
 	public int getId() {

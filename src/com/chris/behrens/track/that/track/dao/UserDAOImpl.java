@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
+import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
 
 @Repository
@@ -18,22 +19,7 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	@Override
-	public List<User> getUsers() {
-
-		// get the current session from hibernate
-		Session currentSession = sessionFactory.getCurrentSession();
-
-		// create a query
-		Query<User> theQuery = currentSession.createQuery("from User", User.class);
-
-		// execute the query and get results
-		List<User> users = theQuery.getResultList();
-
-		// return the results
-		return users;
-	}
-
+	
 	@Override
 	public void saveUser(User theUser) {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -61,14 +47,14 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 
-	@Override
-	public List<UserRecord> getAUserRecords(int id) {
-		Session currentSession = sessionFactory.getCurrentSession();
-		//get the user based on the id
-		User user = currentSession.get(User.class, id);
-		List<UserRecord> userRecords = user.getUserRecords();
-		return null;
-	}
+//	@Override
+//	public List<UserRecord> getAUserRecords(int id) {
+//		Session currentSession = sessionFactory.getCurrentSession();
+//		//get the user based on the id
+//		User user = currentSession.get(User.class, id);
+//		List<UserRecord> userRecords = user.getUserRecords();
+//		return null;
+//	}
 
 	@Override
 	public void saveUserRecord(UserRecord theUserRecord, int UserId) {
@@ -76,6 +62,15 @@ public class UserDAOImpl implements UserDAO {
 		User user = currentSession.get(User.class, UserId);
 		theUserRecord.setUser(user);
 		currentSession.saveOrUpdate(theUserRecord);
+		
+	}
+
+	@Override
+	public void saveUserWishRecord(UserWishRecord theUserWishRecord, int userId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		User user = currentSession.get(User.class, userId);
+		theUserWishRecord.setUser(user);
+		currentSession.saveOrUpdate(theUserWishRecord);
 		
 	}
 }
