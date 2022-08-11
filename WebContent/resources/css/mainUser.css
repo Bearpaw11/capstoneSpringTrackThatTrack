@@ -88,7 +88,7 @@ li a{
   padding-top:60px;
   padding-bottom: 30px;
   text-align: center;
-  text-decoration: underline;
+  font-size: 3em;
 }
 
 
@@ -145,6 +145,8 @@ font-size: 20px;
 text-align: center;
 	
 }
+
+
 
 @media only screen and (max-width: 700px) {
   .add-button {

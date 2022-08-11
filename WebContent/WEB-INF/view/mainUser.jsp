@@ -49,6 +49,7 @@
 		</div>
 		
 		<h1 class="current">Current Collection</h1>
+		
 		<div class="CardDiv">
         <%-- This Section creates a card for ever record in the user record collection--%>
 			<c:forEach var="tempUserRecord" items="${userRecords}">
@@ -56,7 +57,7 @@
 				<c:url var="updateLink" value="/showFormForUpdate"><c:param name="recordId" value="${tempUserRecord.id}" /></c:url>			
 				<c:url var="deleteLink" value="/deleteRecord"><c:param name="userRecordId" value="${tempUserRecord.id}" /></c:url>	
 				<%--This section defines the card info --%>
-				<div class="card cardStyle" style="width: 20rem;">
+				<div class="card cardStyle" style="width: 22rem;">
   					<img src="${tempUserRecord.url}" class="card-img-top" alt="Record Img">
  					 <div class="card-body">
     					<h6 class="card-title cardInfo"><span class="title">Artist:</span> ${tempUserRecord.artist} </h6>

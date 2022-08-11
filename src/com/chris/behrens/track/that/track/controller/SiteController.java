@@ -34,16 +34,17 @@ public class SiteController {
 		//Route to about page
 		@GetMapping("/about")
 		public String about() {
+			
 			return "about";
 		}
 		
 		
 		@GetMapping("/signup")
 		public String signup(Model theModel) {
-			
+			//get model attribute to bind to the form data
 			User theUser = new User();
 			theModel.addAttribute("user", theUser);
-			
+			//Route to the signup page
 			return "signup";
 		}
 		
@@ -52,16 +53,16 @@ public class SiteController {
 		public String saveUser(@ModelAttribute("user") User theUser) {
 			//save the user using the service
 			userService.saveUser(theUser);
-		
+			//redirect to the signin page
 			return "redirect:/signin";
 		}
 		
 		@GetMapping("/signin")
 		public String signin(Model theModel) {
-			
+			//create a loginHelper object to bind to the form data
 			LoginHelper loginHelper = new LoginHelper();
 			theModel.addAttribute("loginHelper", loginHelper);
-			
+			//Route to the signin page
 			return "signin";
 		}
 		
@@ -105,7 +106,8 @@ public class SiteController {
 		//uses the UserId to get the userWishRecords using the userService
 		List<UserWishRecord> theUserWishRecords = userService.getUserWishRecords(UserId);
 		theModel.addAttribute("userWishRecords", theUserWishRecords);
-			
+		
+		//route to the mainUser page
 		return "mainUser";
 		}
 		
@@ -130,6 +132,7 @@ public class SiteController {
 			//save the record using the userService
 			userService.saveUserRecord(theUserRecord, UserId);
 			
+			//Redirects to the mainUser page
 			return "redirect:/mainUser";
 		}
 	
@@ -142,7 +145,7 @@ public class SiteController {
 			// set record as a model attribute to pre-populate the form
 			theModel.addAttribute("userRecord", theUserRecord);
 			
-			//send to add form
+			//Route to add form page
 			return "addCollection";
 		}
 		
@@ -150,10 +153,11 @@ public class SiteController {
 		public String deleteRecord(@RequestParam("userRecordId") int theId) {
 			//use the service to delete the record
 			userService.deleteUserRecord(theId);
+			//reload mainUser page
 			return "redirect:/mainUser";
 		}
 		
-	
+		//creates model attribute to bind the form data. Returns the addWish
 		@GetMapping("/addWish")
 		public String addWish(Model theModel, HttpSession session) {
 			UserWishRecord theUserWishRecord = new UserWishRecord();
@@ -170,6 +174,7 @@ public class SiteController {
 			//save the record using service
 			userService.saveUserWishRecord(theUserWishRecord, UserId);
 			
+			//Redirects to the mainUser page
 			return "redirect:/mainUser";
 		}
 		
@@ -182,7 +187,7 @@ public class SiteController {
 			// set record as a model attribute to pre-populate the form
 			theModel.addAttribute("userWishRecord", theUserWishRecord);
 			
-			//send to add form
+			//Route to addWish page
 			return "addWish";
 		}
 		
@@ -190,6 +195,8 @@ public class SiteController {
 		public String deleteWishRecord(@RequestParam("userWishRecordId") int theId) {
 			//use the service to delete the record
 			userService.deleteUserWishRecord(theId);
+			
+			//Redirects to the mainUser page
 			return "redirect:/mainUser";
 		}
 		

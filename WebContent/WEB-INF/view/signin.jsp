@@ -54,10 +54,6 @@
           <form:input path="password" type="password" class="form-control" id="password"/>
         </div>
         <input type="submit" value="Sign In"  class="btn btn-danger btn" />
-<!-- 				   onclick="window.location.href='mainUser'; return false;" -->
-				  
-				
-        <!-- <button id="login" type="submit" class="btn btn-danger">Sign In</button> -->
       </form:form>
     </div>
   </div>

@@ -10,12 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
+//This is the class is used as the blueprint for the UserWishRecords
 @Entity
+//Table annotation specifies the user_wish_records to be used for mapping
 @Table(name="user_wish_records")
 public class UserWishRecord {
+	
+	//ID annotation defines the primary key 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//ID annotation defines the primary key 
 	@Column(name="id")
+	//These are the fields of the class
 	private int id;
 	
 	@Column(name="artist")
@@ -30,10 +37,18 @@ public class UserWishRecord {
 	@Column(name="url")
 	private String url;
 	
+	//Used to specify the relationship between user_wish_records and user
 	@ManyToOne
 	@JoinColumn(name="users_id")
 	private User user;
 	
+	
+	//empty constructor
+	public UserWishRecord() {
+		
+	}
+
+	//getters and setters for all fields
 	public User getUser() {
 		return user;
 	}

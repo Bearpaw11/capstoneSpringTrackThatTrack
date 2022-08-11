@@ -27,8 +27,6 @@ public interface UserService {
 
 	public User verifyLogin(String userName, String password);
 
-//	public List<UserRecord> getAUserRecords(int id);
-
 	public void saveUserRecord(UserRecord theUserRecord, int i);
 
 	public void saveUserWishRecord(UserWishRecord theUserWishRecord, int userId);

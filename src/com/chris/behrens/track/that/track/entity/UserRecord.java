@@ -10,13 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+//This is the class used to define the a user record
+
+//Entity will specify that this is a entity and is mapped to a database table
 @Entity
 @Table(name="user_records")
 public class UserRecord {
 	
+	//ID annotation defines the primary key 
 	@Id
+	//The Column annotation is used to define the columns in the database
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
+	//These are the fields of the class
 	private int id;
 	
 	@Column(name="artist")
@@ -31,11 +37,18 @@ public class UserRecord {
 	@Column(name="url")
 	private String url;
 	
-	
+	//Used to specify the relationship between user_records and user
 	@ManyToOne
+	//This is the join column in the DB. The user id is the foreign key in the user_records table. Defined as users_id.
 	@JoinColumn(name="users_id")
 	private User user;
 	
+	//empty constructor
+	public UserRecord() {
+		
+	}
+	
+	//getters and setters for all fields
 	public User getUser() {
 		return user;
 	}
@@ -45,11 +58,6 @@ public class UserRecord {
 	}
 
 	
-
-	public UserRecord() {
-		
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -89,16 +97,6 @@ public class UserRecord {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
-	@Override
-	public String toString() {
-		return "UserRecord [id=" + id + ", artist=" + artist + ", album_title=" + album_title + ", conditions="
-				+ conditions + ", url=" + url + "]";
-	}
-
-
-	
-	
 	
 	
 }

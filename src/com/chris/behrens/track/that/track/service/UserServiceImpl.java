@@ -71,12 +71,6 @@ public class UserServiceImpl implements UserService{
 		return userDAO.verifyLogin(theUserName, thePassword);		
 	}
 
-//	@Override
-//	@Transactional
-//	public List<UserRecord> getAUserRecords(int id) {
-//		
-//		return userDAO.getAUserRecords(id);
-//	}
 
 	@Override
 	@Transactional

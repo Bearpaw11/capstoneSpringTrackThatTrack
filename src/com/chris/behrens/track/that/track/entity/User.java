@@ -13,15 +13,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+//This is the class used to define the User
 
-
+// Entity will specify that this is a entity and is mapped to a database table
 @Entity
+//Table annotation specifies the name of the database table to be used for mapping
 @Table(name="users")
 public class User {
 
+	//ID annotation defines the primary key 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//The Column annotation is used to define the columns in the database
 	@Column(name="id")
+	//These are the fields of the class
 	private int id;
 	
 	@Column(name="email")
@@ -33,30 +38,32 @@ public class User {
 	@Column(name="user_name")
 	private String userName;
 	
+	//This defines the relationship between the User and the UserRecord. mappedBy tells hibernate which variable we are using to represent the parent class in our child class.
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="user")
 	private List<UserRecord> userRecords = new ArrayList<>();
 
+	//This defines the relationship between the User and the UserWishRecord class.
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="user")
 	private List<UserWishRecord> userWishRecords = new ArrayList<>();
 
 
-	public List<UserWishRecord> getUserWishRecords() {
-		return userWishRecords;
-	}
 
 
-	public void setUserWishRecords(List<UserWishRecord> userWishRecords) {
-		this.userWishRecords = userWishRecords;
-	}
-
-
-	//empty constructor
+	//empty constructor will be used to create a new instance
 	public User() {
 		
 	}
 
 	
 	//getters and setters for all fields
+	public List<UserWishRecord> getUserWishRecords() {
+		return userWishRecords;
+	}
+	
+	
+	public void setUserWishRecords(List<UserWishRecord> userWishRecords) {
+		this.userWishRecords = userWishRecords;
+	}
 
 	public int getId() {
 		return id;
@@ -106,10 +113,5 @@ public class User {
 		this.userRecords = userRecords;
 	}
 	
-	
-//Override toString method
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + ", userName=" + userName + "]";
-	}
+
 }
