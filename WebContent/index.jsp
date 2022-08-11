@@ -39,7 +39,7 @@
             <a class="nav-link" href="${pageContext.request.contextPath}/signin">Sign In</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8080/spring-crm-rest/api/customers">B2B</a>
+            <a class="nav-link" href="http://localhost:8082/api/users">B2B</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://localhost:8081">Admin</a>
