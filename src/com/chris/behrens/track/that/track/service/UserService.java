@@ -17,8 +17,6 @@ public interface UserService {
 	public void saveUserRecord(UserRecord theUserRecord);
 	
 	public void saveUser(User theUser);
-
-//	public User getUser(int i);
 	
 	public List<UserRecord> getUserRecords(int UserId);
 	
