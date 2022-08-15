@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,9 @@ public class SiteController {
 		@Autowired
 		private UserService userService;
 		
+		@Autowired
+		private PasswordEncoder encoder;
+		
 		//Route to about page
 		@GetMapping("/about")
 		public String about() {
@@ -52,10 +56,14 @@ public class SiteController {
 		
 		@PostMapping("saveUser")
 		public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
+			//encrypting the user password
+			String encryptPassword = encoder.encode(theUser.getPassword());
+			//setting the user password to encryptPassword
+			theUser.setPassword(encryptPassword);
+			
 			//save the user using the service
 			userService.saveUser(theUser);
 			
-			theModel.addAttribute("signedUp","Congrats, you have been sigined up");
 			
 			//redirect to the signin page
 			return "redirect:/signin";
@@ -74,24 +82,25 @@ public class SiteController {
 		//verifies user and if they match the database it directs to the user home page
 		@PostMapping("/loginUser")
 			public String verifyLogin(@ModelAttribute("loginHelper") LoginHelper loginHelper, Model theModel, HttpSession session){
-				User user = userService.verifyLogin(loginHelper.getUserName(), loginHelper.getPassword());
 				
-				if(user == null) {
+				User user = userService.verifyLogin(loginHelper.getUserName());
+			
+				//encoder is matching raw password to encrypted password
+				if(user == null || !encoder.matches(loginHelper.getPassword(), user.getPassword())) {
 					//error message if login fails
 					theModel.addAttribute("loginError", "Error logging in. Please Try again.");
-					//reload the signin page
+					//reload the sign in page
 					return "signin";
 				}
-				//add loggedInUser to http session
+				//add loggedInUser to HttpSession as an attribute
 				session.setAttribute("loggedInUser", user);
 				return "redirect:/mainUser";
 			}			
 		
-		//removed loggedInUser from http session and redirects to landing page
+		//removes loggedInuser from HttpSession and redirects to landing page
 		@GetMapping("/logout")
 		public String logout(HttpSession session) {
 			session.removeAttribute("loggedInUser");
-			System.out.println(session.getAttribute("loggedInUser"));
 			return "redirect:/";
 		}
 		

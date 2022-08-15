@@ -45,12 +45,12 @@ public class UserServiceImpl implements UserService{
 		userDAO.saveUser(theUser);
 	}
 
-	@Override
-	@Transactional
-	public User getUser(int i) {
-		return userDAO.getUser(9);
-		
-	}
+//	@Override
+//	@Transactional
+//	public User getUser(int i) {
+//		return userDAO.getUser(9);
+//		
+//	}
 
 	@Override
 	@Transactional
@@ -67,8 +67,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	@Transactional
-	public User verifyLogin(String theUserName, String thePassword) {
-		return userDAO.verifyLogin(theUserName, thePassword);		
+	public User verifyLogin(String theUserName) {
+		return userDAO.verifyLogin(theUserName);		
 	}
 
 

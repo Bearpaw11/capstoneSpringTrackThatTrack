@@ -36,25 +36,18 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User verifyLogin(String theUserName, String thePassword) {
+	public User verifyLogin(String theUserName) {
 		Session currentSession = sessionFactory.getCurrentSession();
 		Query<User> theQuery = currentSession.createQuery("from User where userName=:theUserName", User.class);
 		theQuery.setParameter("theUserName", theUserName);
 		User user = theQuery.uniqueResult();
-		if(user !=null && user.getPassword().equals(thePassword)) {
+		if(user !=null) {
 			return user;
 		}
 		return null;
 	}
 
-//	@Override
-//	public List<UserRecord> getAUserRecords(int id) {
-//		Session currentSession = sessionFactory.getCurrentSession();
-//		//get the user based on the id
-//		User user = currentSession.get(User.class, id);
-//		List<UserRecord> userRecords = user.getUserRecords();
-//		return null;
-//	}
+
 
 	@Override
 	public void saveUserRecord(UserRecord theUserRecord, int UserId) {
