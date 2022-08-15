@@ -54,10 +54,10 @@
         <div class="col-sm-6">
           <h1 class="header-text">A way to manage your record collection</h1>
           <p class="par-text">
-            Tired of looking at pile of records and having no idea what you really have?
+            Tired of looking at a pile of records and having no idea what you really have?
             With Track That Track just login to view your collection in alphabetical order,
-            add a record to your collection, update your collection and even remove from your collection. 
-            Also, create a wish list of records that you would like to acquire.
+            add a record to your collection, update your collection and even remove a record from your collection. 
+            Also, create a wish list of records that you would like to add to your collection.
           </p>
           <a href="${pageContext.request.contextPath}/signup" class="btn btn1" >Signup</a>
           <a href="${pageContext.request.contextPath}/signin" class="btn btn2" >Sign In</a>
