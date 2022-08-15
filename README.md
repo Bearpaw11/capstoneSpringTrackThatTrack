@@ -15,7 +15,7 @@ The following Technologies were used.
    2. B2B page was build as a Restful web service using Spring Boot. This demonstrates how database data can be turned into JSON data and be posted as an endpoint for a different business area to use. There is full CRUD functionalities with this service. Please see https://github.com/Bearpaw11/TrackThatTrackRest for project files. 
    3. Admin page was built using Spring Boot and is protected with Spring Security. This page allows a ADMIN full CRUD operations of all the TrackThatTrack users. Please see https://github.com/Bearpaw11/TrackThatTrackAdminSpringBoot for project files. 
    
-HTML, JPA, Thymeleaf, CSS, Bootstrap and JavaScript were used to display and style page contents. 
+HTML, JSP, Thymeleaf, CSS, Bootstrap and JavaScript were used to display and style page contents. 
 
 ##Challenges Faced
 One of the challenges I faced was having the logged in user information stay persistent as they navigate throughout the application. I ended up using Http session to help with this. I created a DTO to model the necessary user information I needed to stay persistent and then used the addAttribute method for Http session to hold this information. Once the user logs off I use the removeAttribute method to remove user information from Http session. 
