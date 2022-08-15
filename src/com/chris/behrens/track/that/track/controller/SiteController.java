@@ -44,15 +44,19 @@ public class SiteController {
 			//get model attribute to bind to the form data
 			User theUser = new User();
 			theModel.addAttribute("user", theUser);
+		
 			//Route to the signup page
 			return "signup";
 		}
 		
 		
 		@PostMapping("saveUser")
-		public String saveUser(@ModelAttribute("user") User theUser) {
+		public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
 			//save the user using the service
 			userService.saveUser(theUser);
+			
+			theModel.addAttribute("signedUp","Congrats, you have been sigined up");
+			
 			//redirect to the signin page
 			return "redirect:/signin";
 		}
@@ -75,6 +79,7 @@ public class SiteController {
 				if(user == null) {
 					//error message if login fails
 					theModel.addAttribute("loginError", "Error logging in. Please Try again.");
+					//reload the signin page
 					return "signin";
 				}
 				//add loggedInUser to http session

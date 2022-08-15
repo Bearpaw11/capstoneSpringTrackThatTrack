@@ -56,7 +56,8 @@
           <p class="par-text">
             Tired of looking at pile of records and having no idea what you really have?
             With Track That Track just login to view your collection in alphabetical order,
-            add to your collection, update your collection and even remove from your collection.
+            add a record to your collection, update your collection and even remove from your collection. 
+            Also, create a wish list of records that you would like to acquire.
           </p>
           <a href="${pageContext.request.contextPath}/signup" class="btn btn1" >Signup</a>
           <a href="${pageContext.request.contextPath}/signin" class="btn btn2" >Sign In</a>

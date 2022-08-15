@@ -64,7 +64,7 @@
           <label for="password" class="form-label">Confirm Password</label>
           <form:input path="password" type="password" class="form-control" id="confirm" onchange="checkPass()"/>
         </div>
-        <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled />
+        <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled/>
       </form:form>
     </div>
   </div>
