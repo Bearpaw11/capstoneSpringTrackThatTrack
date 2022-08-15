@@ -18,7 +18,7 @@ The following Technologies were used.
 HTML, JPA, Thymeleaf, CSS, Bootstrap and JavaScript were used to display and style page contents. 
 
 ##Challenges Faced
-One of the challenges I faced was having the logged in user information stay persistent as they navigate throughout the application. I ended up using Http session to help with this. I created a DTO to cary the necessary user information I needed to stay persistent and then used the addAttribute method for Htto session to hold this information. Once the use logs off I use the removeAttribute method to remove user information from Http session. 
+One of the challenges I faced was having the logged in user information stay persistent as they navigate throughout the application. I ended up using Http session to help with this. I created a DTO to model the necessary user information I needed to stay persistent and then used the addAttribute method for Http session to hold this information. Once the user logs off I use the removeAttribute method to remove user information from Http session. 
 
 ## Wireframes
 ### Landing Page:
