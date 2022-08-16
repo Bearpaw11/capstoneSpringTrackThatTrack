@@ -16,8 +16,13 @@ The following Technologies were used.
    3. Admin page was built using Spring Boot and is protected with Spring Security. This page allows a ADMIN full CRUD operations of all the TrackThatTrack users. Please see https://github.com/Bearpaw11/TrackThatTrackAdminSpringBoot for project files. 
    
 HTML, JSP, Thymeleaf, CSS, Bootstrap and JavaScript were used to display and style page contents. 
+## User Stories
+As an avid record collector I would like an application that provides a visual representation of all the records I have in my collection in alphabetical order.
 
-##Challenges Faced
+As a collector that is constantly trading records, buying and selling records I would like the ability to update and delete records from my collection.
+
+As a collector who is always out hunting for that next record, I would like an application that is mobile friendly and secure.
+## Challenges Faced
 One of the challenges I faced was having the logged in user information stay persistent as they navigate throughout the application. I ended up using Http session to help with this. I created a DTO to model the necessary user information I needed to stay persistent and then used the addAttribute method for Http session to hold this information. Once the user logs off I use the removeAttribute method to remove user information from Http session. 
 
 ## Wireframes
