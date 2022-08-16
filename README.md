@@ -4,7 +4,7 @@
 Being an avid vinyl record collector that has more that 400 records in my collection, I find myself having a hard time keeping my collection organized and remembering what records I actually have in my collection. This web application was created to solve this problem by virtually helping a user organize all the records in their collection.
 
 ## About
-Track That Track is a vinyl record management system. A user may sign up. signin and create a visual representation of all the records they own. 
+Track That Track is a vinyl record management system. A user may sign up, signin and create a visual representation of all the records they own. 
 There is full CRUD functionality that allows user to add, update and delete a record from their collection. Data is visually displayed in alphabetical 
 order by artist with an image of the album cover. User may also create a wish list of records that they are wanting to add to their collection with full Crud operations as well.
 
