@@ -38,7 +38,7 @@
   <div class="pageBackground">
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
-      <h1>Add Record to Wishlist</h1>
+      <h1>Add Record to Wish List</h1>
        <form:form action="saveUserWishRecord" modelAttribute="userWishRecord" method="Post" id="addWish">
       
       <form:hidden path="id"/>

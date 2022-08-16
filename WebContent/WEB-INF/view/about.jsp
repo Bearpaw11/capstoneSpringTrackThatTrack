@@ -57,12 +57,13 @@
       <li class="steps">3. You are redirected to your main user page</li>
         <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home1.png" alt="Signup Page" >
       <li class="steps">4. Click "Add record to collection" and get redirected to "Add Record to collection page"
-      <br> Enter information about a record in your collection and click "Add to Colection"</li>
+      <br> Enter information about a record in your collection and click "Add to Collection"</li>
       <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/addToCollection.png" alt="Add to collection">
-      <li class="steps">5. You are redirected to your home page and you wil see your new record added to your collection
-      <br> Your records will automatically be sorted by artist</li> 
+      <li class="steps">5. You are redirected to your home page and you will see your new record added to your collection
+      <br> 
+      	Your records will automatically be sorted by artist</li> 
       <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
-      <li class="steps">6. Use the "Add record to Wish List" button to create a wish list of records you would like to acquire</li>  
+      <li class="steps">6. Use the "Add Record to Wish List" button to create a wish list of records you would like to acquire</li>  
       <li class="steps">7. Use the Update and delete buttons as needed</li>
       <br>
       <br>

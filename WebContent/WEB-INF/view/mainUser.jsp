@@ -72,7 +72,7 @@
 		
 		<h1 class="wish">My Wish List</h1>
 		<div class="CardDiv">
-		 <%-- This Section creates a card for ever record in the user wishlist--%>
+		 <%-- This Section creates a card for ever record in the user wish list--%>
 			<c:forEach var="tempUserWishRecord" items="${userWishRecords}">
 			
 				<c:url var="updateWishLink" value="/showFormForWishUpdate"><c:param name="recordId" value="${tempUserWishRecord.id}" /></c:url>		

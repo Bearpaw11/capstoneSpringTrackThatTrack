@@ -56,30 +56,35 @@ public class SiteController {
 		
 		@PostMapping("saveUser")
 		public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
+			
 			//encrypting the user password
 			String encryptPassword = encoder.encode(theUser.getPassword());
+			
 			//setting the user password to encryptPassword
 			theUser.setPassword(encryptPassword);
 			
 			//save the user using the service
 			userService.saveUser(theUser);
 			
-			
-			//redirect to the signin page
+			//redirect to the sign in page
 			return "redirect:/signin";
 		}
 		
 		@GetMapping("/signin")
 		public String signin(Model theModel) {
+			
 			//create a loginHelper object to bind to the form data
 			LoginHelper loginHelper = new LoginHelper();
+			
+			//add loginHelper to the model
 			theModel.addAttribute("loginHelper", loginHelper);
+			
 			//Route to the signin page
 			return "signin";
 		}
 		
 		
-		//verifies user and if they match the database it directs to the user home page
+		//verifies user and directs to the user home page
 		@PostMapping("/loginUser")
 			public String verifyLogin(@ModelAttribute("loginHelper") LoginHelper loginHelper, Model theModel, HttpSession session){
 				

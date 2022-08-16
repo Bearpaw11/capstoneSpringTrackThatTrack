@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
+//Indicates that the class can be used by the Spring container as a source of bean definition
 @Configuration
 public class LoginSecurity {
 
