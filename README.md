@@ -4,7 +4,7 @@
 Being an avid vinyl record collector that has more that 400 records in my collection, I find myself having a hard time keeping my collection organized and remembering what records I actually have in my collection. This web application was created to solve this problem by virtually helping a user organize all the records in their collection.
 
 ## About
-Track That Track is a vinyl record management system. A user may sign up. signin and create a visual representation of all the records they own. 
+Track That Track is a vinyl record management system. A user may sign up, signin and create a visual representation of all the records they own. 
 There is full CRUD functionality that allows user to add, update and delete a record from their collection. Data is visually displayed in alphabetical 
 order by artist with an image of the album cover. User may also create a wish list of records that they are wanting to add to their collection with full Crud operations as well.
 
@@ -16,8 +16,13 @@ The following Technologies were used.
    3. Admin page was built using Spring Boot and is protected with Spring Security. This page allows a ADMIN full CRUD operations of all the TrackThatTrack users. Please see https://github.com/Bearpaw11/TrackThatTrackAdminSpringBoot for project files. 
    
 HTML, JSP, Thymeleaf, CSS, Bootstrap and JavaScript were used to display and style page contents. 
+## User Stories
+As an avid record collector I would like an application that provides a visual representation of all the records I have in my collection in alphabetical order.
 
-##Challenges Faced
+As a collector that is constantly trading records, buying and selling records I would like the ability to update and delete records from my collection.
+
+As a collector who is always out hunting for that next record, I would like an application that is mobile friendly and secure.
+## Challenges Faced
 One of the challenges I faced was having the logged in user information stay persistent as they navigate throughout the application. I ended up using Http session to help with this. I created a DTO to model the necessary user information I needed to stay persistent and then used the addAttribute method for Http session to hold this information. Once the user logs off I use the removeAttribute method to remove user information from Http session. 
 
 ## Wireframes
