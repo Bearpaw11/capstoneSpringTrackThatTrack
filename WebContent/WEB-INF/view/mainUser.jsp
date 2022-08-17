@@ -83,7 +83,7 @@
  					 <div class="card-body">
     					<h6 class="card-title cardInfo"><span class="title">Artist:</span> ${tempUserWishRecord.artist} </h6>
     					<h6 class="card-title cardInfo"><span class="title">Album Title:</span> ${tempUserWishRecord.album_title} </h6>
-   						<h6 class="card-title cardInfo"><span class="title">Expected Price:</span> ${tempUserWishRecord.price}$ </h6>
+   						<h6 class="card-title cardInfo"><span class="title">Expected Price:</span> $${tempUserWishRecord.price} </h6>
     					<button type="button" class="btn btn-danger mybtn"><a class="button" href="${updateWishLink}">Update</a> </button>
 						<button type="button" class="btn btn-danger mybtn2"><a class="button" href="${deleteWishLink}" >Delete</a></button>	
  					 </div>

@@ -9,7 +9,6 @@ import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
 public interface UserService {
 	
-	
 	public UserRecord getUserRecord(int theId);
 	
 	public List<UserWishRecord> getUserWishRecords(int UserId);

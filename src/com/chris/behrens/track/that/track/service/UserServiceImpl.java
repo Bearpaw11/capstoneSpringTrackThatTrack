@@ -13,6 +13,7 @@ import com.chris.behrens.track.that.track.entity.User;
 import com.chris.behrens.track.that.track.entity.UserRecord;
 import com.chris.behrens.track.that.track.entity.UserWishRecord;
 
+//Service layer for the controller and DAO
 @Service
 public class UserServiceImpl implements UserService{
 	@Autowired

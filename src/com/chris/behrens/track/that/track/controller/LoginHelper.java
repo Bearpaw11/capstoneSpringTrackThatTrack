@@ -6,10 +6,12 @@ public class LoginHelper {
 	private String userName;
 	private String password;
 	
+	//constuctor
 	public LoginHelper() {
 		
 	}
-
+	
+	//getters and setters
 	public String getUserName() {
 		return userName;
 	}
