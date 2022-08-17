@@ -59,12 +59,13 @@
           <form:input path="userName"  type="text" class="form-control" id="UserName"/>
         </div>
         <div class="mb-3">
-          <label for="pasword" class="form-label" >Password - Must be at least 5 characters long</label>
-          <input type="password" class="form-control" id="password" />
+          <label for="pasword" class="form-label" >Password</label>
+          <h6 class="PWTest">Must be at least 5 characters long</h6>
+          <input type="password" class="form-control" id="password" placeholder=""/>
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Confirm Password - Must match Password</label>
-          <form:input path="password" type="password" class="form-control" id="confirm" onchange="checkPass()"/>
+          <label for="password" class="form-label">Confirm Password </label>
+          <form:input path="password" type="password" class="form-control" id="confirm"  onchange="checkPass()"/>
         </div>
         <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled/>
       </form:form>
