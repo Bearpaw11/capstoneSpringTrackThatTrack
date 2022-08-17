@@ -57,6 +57,12 @@ public class SiteController {
 		@PostMapping("saveUser")
 		public String saveUser(@ModelAttribute("user") User theUser, Model theModel) {
 			
+			//set user to the userName entered
+			User user = userService.verifyLogin(theUser.getUserName());
+			
+			//check to see is the user already exists. If null then the user does not exist in database
+			if(user == null) {
+				
 			//encrypting the user password
 			String encryptPassword = encoder.encode(theUser.getPassword());
 			
@@ -68,6 +74,12 @@ public class SiteController {
 			
 			//redirect to the sign in page
 			return "redirect:/signin";
+			} else {
+				theModel.addAttribute("UserError", "Error, User name already exists");
+			}
+			//add a new user to the model and return back to the signup page
+			theModel.addAttribute("user", new User());
+			return "signup";
 		}
 		
 		@GetMapping("/signin")

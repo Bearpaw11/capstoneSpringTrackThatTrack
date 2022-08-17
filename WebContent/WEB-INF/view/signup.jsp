@@ -44,6 +44,8 @@
     </div>
   </nav>
   <div class="pageBackground">
+  	 <!-- error message if user exists -->
+  	<div class="error">${UserError}</div>
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1 class="signUpHeader">Signup</h1>
