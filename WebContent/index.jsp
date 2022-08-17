@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  
+  <!-- Bootstrap Navbar -->
   <nav class="navbar navbar-expand-sm navClass">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
           <li class="nav-item">
             <a class="nav-link" href="${pageContext.request.contextPath}/signin">Sign In</a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="http://localhost:8082/api/users">B2B</a>
           </li>
           <li class="nav-item">
@@ -59,6 +59,7 @@
             add a record to your collection, update your collection and even remove a record from your collection. 
             Also, create a wish list of records that you would like to add to your collection.
           </p>
+          <!-- Buttons for Sign In and Signup -->
           <a href="${pageContext.request.contextPath}/signup" class="btn btn1" >Signup</a>
           <a href="${pageContext.request.contextPath}/signin" class="btn btn2" >Sign In</a>
         </div>

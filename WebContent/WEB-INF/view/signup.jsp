@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <!-- Bootstrap Navbar -->
   <nav class="navbar navbar-expand-sm navClass">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,22 +47,23 @@
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1 class="signUpHeader">Signup</h1>
+      <!-- Form to signup a new user -->
       <form:form action="saveUser" modelAttribute="user" method="Post" id="signup">
       <form:hidden path="id"/>
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
-          <form:input path="email" id="email" type="email" class="form-control"/>
+          <form:input path="email" id="email" type="text" class="form-control" onchange="checkEmail()" />
         </div>
         <div class="mb-3">
           <label for="userName" class="form-label">User Name</label>
           <form:input path="userName"  type="text" class="form-control" id="UserName"/>
         </div>
         <div class="mb-3">
-          <label for="pasword" class="form-label" >Password</label>
+          <label for="pasword" class="form-label" >Password - Must be at least 5 characters long</label>
           <input type="password" class="form-control" id="password" />
         </div>
         <div class="mb-3">
-          <label for="password" class="form-label">Confirm Password</label>
+          <label for="password" class="form-label">Confirm Password - Must match Password</label>
           <form:input path="password" type="password" class="form-control" id="confirm" onchange="checkPass()"/>
         </div>
         <input type="submit" value="Signup" class="btn btn-danger" id="submit" disabled/>
@@ -73,6 +75,7 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
+   <!--  Link to custom JS Script for password validation -->
   <script src="${pageContext.request.contextPath}/resources/scripts/signup.js"></script>
 </body>
 
