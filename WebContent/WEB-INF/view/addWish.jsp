@@ -18,6 +18,7 @@
  
 </head>
 <body>
+  <!-- Bootstrap navbar -->
   <nav class="navbar navbar-expand-sm navClass">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,9 +29,8 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="${pageContext.request.contextPath}/mainUser">Home</a>
           </li>
-          	<li class="nav-item"><a class="nav-link" aria-current="page"
-				href="logout">Logout</a>
-			</li>
+          <li class="nav-item"><a class="nav-link" aria-current="page" href="logout">Logout</a>
+		  </li>
         </ul>
       </div>
     </div>
@@ -39,32 +39,37 @@
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1>Add Record to Wish List</h1>
+       <!-- form to a record to wish list -->
        <form:form action="saveUserWishRecord" modelAttribute="userWishRecord" method="Post" id="addWish">
-      
-      <form:hidden path="id"/>
-        <div class="mb-3">
-          <label for="artist" class="form-label">Artist</label>
-          <form:input path="artist" class="form-control" id="artist"/>
-        </div>
-        <div class="mb-3">
-          <label for="albumName" class="form-label">Album Name</label>
-          <form:input path="album_title" class="form-control" id="albumName"/>
-        </div>
-        <div class="mb-3">
-          <div class="mb-3">
-            <label for="price" class="form-label">Expected Cost</label>
-            <form:input path="price" class="form-control" id="price"/>
-          </div>
-        <div class="mb-3">
-          <label for="url" class="form-label">Album cover URL</label>
-          <form:input path="url" class="form-control" id="albumUrl"/>
-        </div>
-        <input type="submit" value="Save" class="btn btn-danger btn" id="submit"/>
-        <input type="button" value="Cancel"
+      <!--  hide the id from the page but we still need it -->
+      	<form:hidden path="id"/>
+      		<!-- artist section of form -->
+        	<div class="mb-3">
+          		<label for="artist" class="form-label">Artist</label>
+          		<form:input path="artist" class="form-control" id="artist"/>
+        	</div>
+        	<!-- album section of form  -->
+        	<div class="mb-3">
+          		<label for="albumName" class="form-label">Album Name</label>
+          		<form:input path="album_title" class="form-control" id="albumName"/>
+        	</div>
+<!--         	expect cost section of form -->
+          	<div class="mb-3">
+            	<label for="price" class="form-label">Expected Cost</label>
+            	<form:input path="price" class="form-control" id="price"/>
+          	</div>
+          	<!-- album url section of form -->
+        	<div class="mb-3">
+          		<label for="url" class="form-label">Album cover URL</label>
+          		<form:input path="url" class="form-control" id="albumUrl"/>
+       		</div>
+       		<!-- input and cancel buttons -->
+        	<input type="submit" value="Save" class="btn btn-danger btn" id="submit"/>
+       		<input type="button" value="Cancel"
 				   onclick="window.location.href='mainUser'; return false;"
 				   class="btn btn-danger btn"
-			/>
-      </form:form>
+			 />
+      	</form:form>
     </div>
   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

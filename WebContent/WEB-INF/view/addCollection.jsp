@@ -21,8 +21,6 @@
 	integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
 	crossorigin="anonymous">
 </head>
-
-
 <body>
 	<nav class="navbar navbar-expand-sm navClass">
 		<div class="container-fluid">
@@ -48,7 +46,6 @@
 			alt="logo" width="300" height="300">
 		<div class="formCard">
 			<h1>Add/Update Record to Collection</h1>
-		
 			<form:form action="saveUserRecord" modelAttribute="userRecord"
 				method="Post" id="addUserRecord">
 				<form:hidden path="id" />

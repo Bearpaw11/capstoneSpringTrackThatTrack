@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <!-- Bootstrap navbar -->
   <nav class="navbar navbar-expand-sm navClass">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,27 +50,28 @@
     <h2 class="aboutHeader fntSize">Use Track That Track to make your collection virtually look like this!</h2>
     <img class="organized" src="${pageContext.request.contextPath}/resources/images/organized.jpg" alt="Messy Records" width="400" height="300">
     <h3 class="howHeader fntSize">Here's how it works</h3>
-    <ul>
-      <li class="steps">1. Use our easy sign up to create a user account</li>
-        <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signup.png" alt="Signup Page" >
-      <li class="steps">2. Log in with your new account</li>
-        <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signin.png" alt="Signup Page" >
-      <li class="steps">3. You are redirected to your main user page</li>
-        <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home1.png" alt="Signup Page" >
-      <li class="steps">4. Click "Add record to collection" and get redirected to "Add Record to collection page"
-      <br> Enter information about a record in your collection and click "Add to Collection"</li>
-      <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/addToCollection.png" alt="Add to collection">
-      <li class="steps">5. You are redirected to your home page and you will see your new record added to your collection
-      <br> 
-      	Your records will automatically be sorted by artist</li> 
-      <img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
-      <li class="steps">6. Use the "Add Record to Wish List" button to create a wish list of records you would like to acquire</li>  
-      <li class="steps">7. Use the Update and delete buttons as needed</li>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+    	<!-- List of how the site works and images -->
+    	<ul>
+     		 <li class="steps">1. Use our easy sign up to create a user account</li>
+       		 	<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signup.png" alt="Signup Page" >
+      		<li class="steps">2. Log in with your new account</li>
+        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/signin.png" alt="Signup Page" >
+      		<li class="steps">3. You are redirected to your main user page</li>
+        		<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home1.png" alt="Signup Page" >
+      		<li class="steps">4. Click "Add record to collection" and get redirected to "Add Record to collection page"
+      			<br> Enter information about a record in your collection and click "Add to Collection"</li>
+      			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/addToCollection.png" alt="Add to collection">
+      		<li class="steps">5. You are redirected to your home page and you will see your new record added to your collection
+      			<br> 
+      			Your records will automatically be sorted by artist</li> 
+      			<img class="pageImg" src="${pageContext.request.contextPath}/resources/images/home.png" alt="Home Page">
+      		<li class="steps">6. Use the "Add Record to Wish List" button to create a wish list of records you would like to acquire</li>  
+     	   <li class="steps">7. Use the Update and delete buttons as needed</li>
+      		<br>
+      		<br>
+      		<br>
+      		<br>
+     		<br>
      
     </ul>
   </header>

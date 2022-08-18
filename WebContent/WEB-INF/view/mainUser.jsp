@@ -18,6 +18,7 @@
 	href="${pageContext.request.contextPath}/resources/css/mainUser.css">
 </head>
 <body>
+	<!-- Bootstrap Navbar -->
 	<nav class="navbar navbar-expand-sm navClass">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
@@ -28,8 +29,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="logout">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="logout">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -72,12 +72,12 @@
 		
 		<h1 class="wish">My Wish List</h1>
 		<div class="CardDiv">
-		 <%-- This Section creates a card for ever record in the user wish list--%>
+		 <%-- This loops through all the userWishRecords--%>
 			<c:forEach var="tempUserWishRecord" items="${userWishRecords}">
-			
+				<!-- Defining the link we want to put on each card -->
 				<c:url var="updateWishLink" value="/showFormForWishUpdate"><c:param name="recordId" value="${tempUserWishRecord.id}" /></c:url>		
 				<c:url var="deleteWishLink" value="/deleteWishRecord"><c:param name="userWishRecordId" value="${tempUserWishRecord.id}" /></c:url>
-				<%--This section defines the card info --%>
+				<%--This section defines the card and the information we will be putting on it --%>
 				<div class="card cardStyle" style="width: 22rem;">
   					<img src="${tempUserWishRecord.url}" class="card-img-top" alt="Record img">
  					 <div class="card-body">

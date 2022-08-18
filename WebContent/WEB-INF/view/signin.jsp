@@ -15,6 +15,7 @@
 		  href="${pageContext.request.contextPath}/resources/css/signin.css">
 </head>
 <body>
+	<!-- Bootstrap navbar -->
   <nav class="navbar navbar-expand-sm navClass">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +41,12 @@
   </nav>
 
   <div class="pageBackground">
+ <!--  error message if signin fails -->
   <div class="error">${loginError}</div>
     <img class="pageImg"src="${pageContext.request.contextPath}/resources/images/TrackThat.png" alt="logg" width="300" height="300">
     <div class="formCard">
       <h1 class="signInHeader">Sign In</h1>
+      	<!-- form for user signin -->
         <form:form action="loginUser" modelAttribute="loginHelper" method="Post" id="signin">
         <div class="mb-3">
           <label for="userName" class="form-label">User Name</label>
