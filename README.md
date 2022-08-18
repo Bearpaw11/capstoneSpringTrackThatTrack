@@ -10,16 +10,16 @@ order by artist with an image of the album cover. User may also create a wish li
 
 ## Technologies Used
 Track That Track has evolved into a full Web portal project built to demonstrate separation of concerns and a distributed system that would be found in an enterprise environment.
-The following Technologies were used.
-   1. Landing page and User interface was created as a Java MVC project
-   2. B2B page was build as a Restful web service using Spring Boot. This demonstrates how database data can be turned into JSON data and be posted as an endpoint for a different business area to use. There is full CRUD functionalities with this service. Please see https://github.com/Bearpaw11/TrackThatTrackRest for project files. 
-   3. Admin page was built using Spring Boot and is protected with Spring Security. This page allows a ADMIN full CRUD operations of all the TrackThatTrack users. Please see https://github.com/Bearpaw11/TrackThatTrackAdminSpringBoot for project files. 
+The following technologies were used.
+   1. Landing page and User interface was created as a Java MVC project.
+   2. B2B page was built as a Restful web service using Spring Boot. This demonstrates how database data can be turned into JSON data and be posted as an endpoint for a different business area to use. There is full CRUD functionalities with this service. Please see https://github.com/Bearpaw11/TrackThatTrackRest for project files. 
+   3. Admin page was built using Spring Boot and is protected with Spring Security. This page allows an ADMIN full CRUD operations of all the Track That Track users. Please see https://github.com/Bearpaw11/TrackThatTrackAdminSpringBoot for project files. 
    
 HTML, JSP, Thymeleaf, CSS, Bootstrap and JavaScript were used to display and style page contents. 
 ## User Stories
 As an avid record collector I would like an application that provides a visual representation of all the records I have in my collection in alphabetical order.
 
-As a collector that is constantly trading records, buying and selling records I would like the ability to update and delete records from my collection.
+As a collector that is constantly trading, buying and selling records, I would like the ability to update and delete records from my collection.
 
 As a collector who is always out hunting for that next record, I would like an application that is mobile friendly and secure.
 ## Challenges Faced
