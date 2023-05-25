@@ -1,4 +1,5 @@
 # Track That Track
+![TrackThat 2 04 09 PM](https://github.com/Bearpaw11/capstoneSpringTrackThatTrack/assets/54750179/7fc95b13-1aaf-4a02-ba8e-cd0751e97ef0)
 
 ## Inspiration
 Being an avid vinyl record collector that has more that 400 records in my collection, I find myself having a hard time keeping my collection organized and remembering what records I actually have in my collection. This web application was created to solve this problem by virtually helping a user organize all the records in their collection.
